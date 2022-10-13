@@ -8,7 +8,7 @@ OVERLAP_THRESHOLD = 0.9
 dim_overlaps = [[], [], [], [], [], [], [], [], [], []]
 dim_story_overlaps = [[], [], [], [], [], [], [], [], [], []]
 
-glucose = pd.read_csv("GLUCOSE_training_data_final.csv")
+glucose = pd.read_csv("data/GLUCOSE_training_data_final.csv")
 
 for i, row in tqdm(glucose.iterrows(), total=len(glucose)):
     for dim in range(1, 11):
@@ -40,4 +40,4 @@ for dim in range(1, 11):
     dim_overlap_df[f"{dim}_has_overlap_{OVERLAP_THRESHOLD}"] = dim_overlaps[dim-1]
     dim_overlap_df[f"{dim}_has_story_overlap_{OVERLAP_THRESHOLD}"] = dim_story_overlaps[dim-1]
 
-dim_overlap_df.to_csv("glucose_with_overlap.csv")
+dim_overlap_df.to_csv("glucose_overlap.csv")
