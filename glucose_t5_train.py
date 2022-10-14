@@ -1,7 +1,10 @@
+import os
 import torch
 from torch.utils.data import Dataset, random_split
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, T5Tokenizer, T5ForConditionalGeneration, DataCollatorForSeq2Seq
 import pandas as pd
+
+os.environ["WANDB_PROJECT"] = "optional-project"
 
 class GlucoseDataset(Dataset):
     def __init__(self, data, tokenizer, max_source_len=512, max_target_len=512):
@@ -35,10 +38,10 @@ class GlucoseDataset(Dataset):
         target_mask = target["attention_mask"].squeeze()
 
         return {
-            "source_ids": source_ids.to(dtype=torch.long),
-            "source_mask": source_mask.to(dtype=torch.long),
-            "target_ids": target_ids.to(dtype=torch.long),
-            "target_mask": target_mask.to(dtype=torch.long),
+            "input_ids": source_ids.to(dtype=torch.long),
+            "attention_mask": source_mask.to(dtype=torch.long),
+            "decoder_input_ids": target_ids.to(dtype=torch.long),
+            "decoder_attention_mask": target_mask.to(dtype=torch.long),
         }
 
 if __name__ == "__main__":
@@ -51,10 +54,13 @@ if __name__ == "__main__":
                                             logging_strategy="epoch",
                                             num_train_epochs=5, 
                                             save_strategy="epoch", 
-                                            report_to="wandb")
+                                            report_to="wandb",
+                                            run_name="glucose_t5_specific",
+                                            per_device_train_batch_size=2,
+                                            per_device_eval_batch_size=2)
     trainer = Seq2SeqTrainer(model=model,
                             args=training_args,
-                            data_collator=DataCollatorForSeq2Seq,
+                            data_collator=DataCollatorForSeq2Seq(tokenizer, model),
                             train_dataset=train_dataset,
                             eval_dataset=val_dataset)
     trainer.train()
