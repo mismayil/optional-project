@@ -2,25 +2,27 @@ import torch
 from torch.utils.data import Dataset
 
 class GlucoseDataset(Dataset):
-    def __init__(self, data, tokenizer, max_source_len=512, max_target_len=512):
+    def __init__(self, data, tokenizer, source_col="input", target_col="target", max_source_len=512, max_target_len=512):
         self.tokenizer = tokenizer
         self.data = data
         self.max_source_len = max_source_len
         self.max_target_len = max_target_len
+        self.source_col = source_col
+        self.target_col = target_col
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, index):
         source = self.tokenizer(
-            [self.data.iloc[index, 0]],
+            [self.data.loc[index, self.source_col]],
             padding="max_length",
             max_length=self.max_source_len,
             return_tensors="pt",
             truncation=True,
         )
         target = self.tokenizer(
-            [self.data.iloc[index, 1]],
+            [self.data.loc[index, self.target_col]],
             padding="max_length",
             max_length=self.max_target_len,
             return_tensors="pt",
