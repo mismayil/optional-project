@@ -8,7 +8,7 @@ from glucose_t5_utils import GlucoseDataset
 os.environ["WANDB_PROJECT"] = "optional-project"
 
 if __name__ == "__main__":
-    glucose_t5 = pd.read_csv("data/glucose_t5_general.tsv", sep="\t", header=None)
+    glucose_t5 = pd.read_csv("data/t5_training_data.tsv", sep="\t", header=None)
     glucose_t5_general = pd.DataFrame()
     glucose_t5_general["input"] = glucose_t5.iloc[:, 0]
     glucose_t5_general["target"] = glucose_t5.iloc[:, 1].apply(lambda x: x.split("**")[1].strip())
