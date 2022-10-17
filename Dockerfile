@@ -55,4 +55,9 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
 
+COPY ./glucose_t5_general_train.py .
+COPY ./glucose_t5_specific_train.py .
+COPY ./glucose_t5_general_train.sh .
+COPY ./glucose_t5_specific_train.sh .
+
 CMD ["/usr/sbin/sshd", "-D"]

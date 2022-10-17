@@ -17,14 +17,16 @@ if __name__ == "__main__":
     dataset = GlucoseDataset(glucose_t5_specific, tokenizer)
     train_dataset, val_dataset = random_split(dataset, [len(dataset)-500, 500])
     training_args = Seq2SeqTrainingArguments(output_dir="/scratch/mete/glucose_t5_specific_out",
-                                            logging_strategy="epoch",
-                                            num_train_epochs=3, 
+                                            logging_strategy="steps",
+                                            num_train_epochs=1, 
                                             save_strategy="epoch",
-                                            evaluation_strategy="epoch", 
+                                            evaluation_strategy="steps",
+                                            eval_steps=1000,
+                                            logging_first_step=True, 
                                             report_to="wandb",
                                             run_name="glucose_t5_specific",
-                                            per_device_train_batch_size=4,
-                                            per_device_eval_batch_size=4)
+                                            per_device_train_batch_size=2,
+                                            per_device_eval_batch_size=2)
     trainer = Seq2SeqTrainer(model=model,
                             args=training_args,
                             data_collator=DataCollatorForSeq2Seq(tokenizer, model),
