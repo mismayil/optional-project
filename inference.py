@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    dataset = pd.read_csv(args.dataset, index_col=0, nrows=5)
+    dataset = pd.read_csv(args.dataset, index_col=0)
 
     tokenizer = T5Tokenizer.from_pretrained("t5-large", model_max_length=512)
     model = T5ForConditionalGeneration.from_pretrained(args.model)
