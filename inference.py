@@ -3,6 +3,10 @@ from tqdm import tqdm
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import argparse
 import pathlib
+# import torch
+
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cpu")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -16,6 +20,7 @@ if __name__ == "__main__":
 
     tokenizer = T5Tokenizer.from_pretrained("t5-large", model_max_length=512)
     model = T5ForConditionalGeneration.from_pretrained(args.model)
+    # model.to(device)
 
     predictions = []
 
