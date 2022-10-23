@@ -8,6 +8,13 @@ from helpers import has_overlap, has_overlap_with_story
 
 OVERLAP_THRESHOLD = 0.1
 
+def group_overlap_by_dim(data, dim=1, threshold=0.0):
+    non_escaped = data[data[f"{dim}_specificNL"] != "escaped"]
+    spec_gen_col = f"{dim}_has_overlap_{threshold}"
+    spec_story_col = f"{dim}_has_story_overlap_{threshold}"
+    samples_by_overlap = non_escaped.groupby([spec_gen_col, spec_story_col]).experiment_id.count()
+    return samples_by_overlap.rename_axis(index={spec_gen_col: "spec_gen_overlap", spec_story_col: "spec_story_overlap"}).rename(f"dim{dim}")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
@@ -53,3 +60,11 @@ if __name__ == "__main__":
 
     data_with_overlap = pd.concat([data, dim_overlap_df], axis=1)
     data_with_overlap.to_csv(f"{pathlib.Path(args.dataset).stem}_with_overlap_{args.threshold}.csv")
+
+    dim_overlap_stats_df = group_overlap_by_dim(data_with_overlap, dim=1, threshold=args.threshold)
+
+    for dim in range(2, 11):
+        dim_overlap_stats_df = pd.merge(dim_overlap_stats_df, group_overlap_by_dim(data_with_overlap, dim=dim, threshold=args.threshold), left_index=True, right_index=True, how="outer")
+    
+    dim_overlap_stats_df = dim_overlap_stats_df.reset_index().fillna(0)
+    dim_overlap_stats_df.to_csv(f"{pathlib.Path(args.dataset).stem}_overlap_{args.threshold}_stats.csv")
