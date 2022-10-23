@@ -31,4 +31,4 @@ if __name__ == "__main__":
     
     dataset["prediction"] = predictions
 
-    dataset.to_csv(f"{pathlib.Path(args.dataset).stem}_with_preds.csv")
+    dataset.to_csv(f"outputs/{pathlib.Path(args.dataset).stem}_with_preds.csv")

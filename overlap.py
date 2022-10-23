@@ -59,7 +59,7 @@ if __name__ == "__main__":
         dim_overlap_df[f"{dim}_has_story_overlap_{args.threshold}"] = dim_story_overlaps[dim-1]
 
     data_with_overlap = pd.concat([data, dim_overlap_df], axis=1)
-    with_overlap_file = f"{pathlib.Path(args.dataset).stem}_with_overlap_{args.threshold}.csv"
+    with_overlap_file = f"outputs/{pathlib.Path(args.dataset).stem}_with_overlap_{args.threshold}.csv"
     data_with_overlap.to_csv(with_overlap_file)
 
     data_with_overlap = pd.read_csv(with_overlap_file)
@@ -69,4 +69,4 @@ if __name__ == "__main__":
         dim_overlap_stats_df = pd.merge(dim_overlap_stats_df, group_overlap_by_dim(data_with_overlap, dim=dim, threshold=args.threshold), left_index=True, right_index=True, how="outer")
     
     dim_overlap_stats_df = dim_overlap_stats_df.reset_index().fillna(0)
-    dim_overlap_stats_df.to_csv(f"{pathlib.Path(args.dataset).stem}_overlap_{args.threshold}_stats.csv")
+    dim_overlap_stats_df.to_csv(f"outputs/{pathlib.Path(args.dataset).stem}_overlap_{args.threshold}_stats.csv")
