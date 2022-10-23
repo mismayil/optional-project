@@ -3,10 +3,9 @@ from tqdm import tqdm
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import argparse
 import pathlib
-# import torch
+import torch
 
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# device = torch.device("cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -20,13 +19,13 @@ if __name__ == "__main__":
 
     tokenizer = T5Tokenizer.from_pretrained("t5-large", model_max_length=512)
     model = T5ForConditionalGeneration.from_pretrained(args.model)
-    # model.to(device)
+    model.to(device)
 
     predictions = []
 
     for i, row in tqdm(dataset.iterrows(), total=len(dataset)):
         input_ids = tokenizer(row["input"], return_tensors="pt", max_length=512, padding="max_length", truncation=True).input_ids
-        outputs = model.generate(input_ids, max_length=512)
+        outputs = model.generate(input_ids.to(device), max_length=512)
         prediction = tokenizer.decode(outputs[0], skip_special_tokens=True)
         predictions.append(prediction)
     
