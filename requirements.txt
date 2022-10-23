@@ -5,3 +5,4 @@ spacy
 wandb
 transformers
 sentencepiece
+sacrebleu
