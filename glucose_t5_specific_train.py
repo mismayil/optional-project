@@ -3,15 +3,13 @@ from torch.utils.data import random_split
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, T5Tokenizer, T5ForConditionalGeneration, DataCollatorForSeq2Seq
 import pandas as pd
 
-from glucose_t5_utils import GlucoseDataset
+from utils import GlucoseDataset, get_glucose_specific_data
 
 os.environ["WANDB_PROJECT"] = "optional-project"
 
 if __name__ == "__main__":
     glucose_t5 = pd.read_csv("data/t5_training_data.tsv", sep="\t", header=None)
-    glucose_t5_specific = pd.DataFrame()
-    glucose_t5_specific["input"] = glucose_t5.iloc[:, 0]
-    glucose_t5_specific["target"] = glucose_t5.iloc[:, 1].apply(lambda x: x.split("**")[0].strip())
+    glucose_t5_specific = get_glucose_specific_data(glucose_t5)
     tokenizer = T5Tokenizer.from_pretrained("t5-large")
     model = T5ForConditionalGeneration.from_pretrained("t5-large")
     dataset = GlucoseDataset(glucose_t5_specific, tokenizer)

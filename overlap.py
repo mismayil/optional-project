@@ -4,7 +4,7 @@ import re
 import argparse
 import pathlib
 
-from helpers import has_overlap, has_overlap_with_story
+from utils import has_overlap, has_overlap_with_story
 
 OVERLAP_THRESHOLD = 0.1
 
