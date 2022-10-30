@@ -1,0 +1,10 @@
+,story_copy,dim1,dim6
+0,"[False, 'none', False, 'none']",44860,40729
+1,"[False, 'none', True, 'backward']",153,137
+2,"[False, 'none', True, 'forward']",1455,1355
+3,"[True, 'backward', False, 'none']",158,170
+4,"[True, 'backward', True, 'backward']",55,38
+5,"[True, 'backward', True, 'forward']",7,3
+6,"[True, 'forward', False, 'none']",6255,5868
+7,"[True, 'forward', True, 'backward']",15,15
+8,"[True, 'forward', True, 'forward']",2430,1997
