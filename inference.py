@@ -12,6 +12,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--model", type=str, help="Path to T5 model")
     parser.add_argument("--dataset", type=str, help="Path to test dataset")
+    parser.add_argument("--suffix", type=str, default="", help="Suffix for output file.")
 
     args = parser.parse_args()
 
@@ -31,4 +32,4 @@ if __name__ == "__main__":
     
     dataset["prediction"] = predictions
 
-    dataset.to_csv(f"outputs/{pathlib.Path(args.dataset).stem}_with_preds.csv")
+    dataset.to_csv(f"outputs/{pathlib.Path(args.dataset).stem}_with_preds{args.suffix}.csv")
