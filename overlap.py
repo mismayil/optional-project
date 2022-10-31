@@ -105,7 +105,7 @@ if __name__ == "__main__":
     suffix = f"overlap_{args.threshold}_dim_{dims_text}_{overlap_type_text}"
 
     data_with_overlap = pd.concat([data, dim_overlap_df], axis=1)
-    with_overlap_file = f"outputs/{pathlib.Path(args.dataset).stem}_with_{suffix}.csv"
+    with_overlap_file = f"large_outputs/{pathlib.Path(args.dataset).stem}_with_{suffix}.csv"
     data_with_overlap.to_csv(with_overlap_file)
 
     data_with_overlap = pd.read_csv(with_overlap_file)
