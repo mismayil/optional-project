@@ -8,6 +8,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--dataset", type=str, help="Path to the eval dataset")
+    parser.add_argument("--suffix", type=str, default="", help="Suffix for output file.")
 
     args = parser.parse_args()
 
@@ -20,5 +21,5 @@ if __name__ == "__main__":
         references = dim_eval_data.references.apply(lambda r: [s.strip().strip("'") for s in r.rstrip("]").strip("[").split(",")]).to_list()
         scores["bleu"][f"dim{dim}"] = sacrebleu.corpus_bleu(dim_eval_data.prediction.to_list(), references).score
     
-    with open(f"{pathlib.Path(args.dataset).stem}_scores.json", "w") as f:
+    with open(f"outputs/{pathlib.Path(args.dataset).stem}_scores{args.suffix}.json", "w") as f:
         json.dump(scores, f, indent=2)
