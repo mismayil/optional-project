@@ -4,6 +4,7 @@ import torch
 from torch.utils.data import Dataset
 import pandas as pd
 import re
+import itertools
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -17,10 +18,16 @@ def get_doc(text):
 
     return doc_cache[text]
 
-def get_sents(text):
-    if text not in sent_cache:
-        doc = nlp(text.strip())
-        sent_cache[text] = [sent.text for sent in doc.sents if len(sent.text.strip()) > 0]
+def get_sents(text, by_sentence=None, use_cache=True):
+    if not use_cache or text not in sent_cache:
+        if by_sentence:
+            text_parts = re.split(re.escape(by_sentence), text)
+            past_sents = get_sents(text_parts[0])
+            future_sents = get_sents(text_parts[1])
+            sent_cache[text] = list(itertools.chain(past_sents, [by_sentence], future_sents))
+        else:
+            doc = nlp(text.strip())
+            sent_cache[text] = [sent.text for sent in doc.sents if len(sent.text.strip()) > 0]
 
     return sent_cache[text]
 
