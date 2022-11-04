@@ -34,16 +34,12 @@ RUN echo "export LANG=en_US.UTF-8" >> ~/.bashrc
 RUN ${CONDA} create --name op -y python=3.9
 RUN ${CONDA} install -n op ipykernel --update-deps --force-reinstall
 
-ARG PROJECT_TAINT=0
 ARG GITHUB_PERSONAL_TOKEN
 
 # Clone project
 RUN git clone https://${GITHUB_PERSONAL_TOKEN}@github.com/mismayil/optional-project.git
 
 WORKDIR ${OP_DIR}
-
-# Setup data
-COPY ./data  ${OP_DIR}/data
 
 ARG ENV_TAINT=0
 
@@ -52,6 +48,9 @@ RUN ${CONDA} run -n op pip install -r requirements.txt --extra-index-url https:/
 RUN ${CONDA} run -n op python -m spacy download en_core_web_sm
 
 ARG VERSION_TAINT=0
+
+# Setup data
+COPY ./data  ${OP_DIR}/data
 
 RUN git pull
 
