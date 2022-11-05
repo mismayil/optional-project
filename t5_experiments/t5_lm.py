@@ -278,10 +278,12 @@ class T5LMClassifier:
 
     def predict(self,
                 test_file,
-                per_gpu_eval_batch_size, max_generated_tokens):
+                per_gpu_eval_batch_size, max_generated_tokens,
+                input_label='model_input',
+                output_label='model_output'):
         eval_dataset, _ = load_and_cache_examples(test_file, local_rank=self.local_rank,
                                                   max_seq_length=self.max_seq_length, tokenizer=self.tokenizer,
-                                                  evaluate=True)
+                                                  evaluate=True, input_label=input_label, target_label=output_label)
         model = T5ForConditionalGeneration.from_pretrained(self.output_model_dir)
         return self._predict(eval_dataset=eval_dataset,
                              per_gpu_eval_batch_size=per_gpu_eval_batch_size,

@@ -44,7 +44,7 @@ def training(training_file, dev_file,
 
 
 def evaluate(test_file, trained_models_dir, sequence_length,
-             per_gpu_eval_batch_size, language_model):
+             per_gpu_eval_batch_size, language_model, input_label="model_input", output_label="model_output"):
     _classifier = T5LMClassifier(max_seq_length=sequence_length,
                                  output_model_dir=trained_models_dir,
                                  cache_dir=os.path.join(DATA_FOLDER, 'pretrained'),
@@ -53,8 +53,8 @@ def evaluate(test_file, trained_models_dir, sequence_length,
 
     preds = _classifier.predict(test_file=test_file,
                                 per_gpu_eval_batch_size=per_gpu_eval_batch_size,
-                                max_generated_tokens=sequence_length)
-    labels = read_labels(test_file, tag='snippet')
+                                max_generated_tokens=sequence_length, input_label=input_label, output_label=output_label)
+    labels = read_labels(test_file, tag=output_label)
     labels = [l.lower() for l in labels]
     preds = [p.lower() for p in preds]
     labels = [' '.join(get_encoded_code_tokens(label)) for label in labels]
@@ -63,7 +63,7 @@ def evaluate(test_file, trained_models_dir, sequence_length,
     return eval_results
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Semantic parsing T5')
+    parser = argparse.ArgumentParser()
 
     parser.add_argument('--training-file', dest='training_file', required=False, help='Path to training file',
                         default=None)
@@ -88,6 +88,7 @@ def parse_args():
     parser.add_argument('--output-label', type=str, default="model_output", help="Output label name.")
     parser.add_argument("--wandb-project", type=str, default="optional-project", help="Wandb project name")
     parser.add_argument("--wandb-run-name", type=str, default=None, help="Wandb run name")
+    parser.add_argument("--max-seq-length", type=int, default=48, help="Maximum sequence length for training.")
     args = parser.parse_args()
     return args
 
@@ -102,18 +103,22 @@ def main():
                  per_gpu_train_batch_size=int(args.batch_size),
                  epochs=int(args.epochs),
                  learning_rate=float(args.lr),
-                 sequence_length=48,
+                 sequence_length=args.max_seq_length,
                  noisy_file=args.noisy_file,
                  language_model=language_model,
                  grad_acc=int(args.gradient_accumulation),
+                 input_label=args.input_label,
+                 output_label=args.output_label,
                  wandb_project=args.wandb_project,
                  wandb_run_name=args.wandb_run_name)
     if args.validation_file:
             evaluation_results = evaluate(test_file=args.validation_file,
                                       trained_models_dir=args.model_dir,
                                       per_gpu_eval_batch_size=int(args.val_batch_size),
-                                      sequence_length=48,
-                                          language_model=language_model
+                                      sequence_length=args.max_seq_length,
+                                      language_model=language_model,
+                                      input_label=args.input_label,
+                                      output_label=args.output_label
                                     )
 if __name__ == '__main__':
     main()

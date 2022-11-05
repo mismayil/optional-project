@@ -4,7 +4,7 @@ from io import StringIO
 from tokenize import generate_tokens
 
 
-def read_labels(dataset_file, tag='snippet'):
+def read_labels(dataset_file, tag='model_output'):
     labels = []
     for i, pair in enumerate(json.load(open(dataset_file, 'r'))):
         label = str(pair[tag])
