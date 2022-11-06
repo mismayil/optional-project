@@ -57,7 +57,7 @@ def evaluate(test_file, trained_models_dir, sequence_length,
     labels = read_labels(test_file, tag=output_label)
     labels = [l.lower() for l in labels]
     preds = [p.lower() for p in preds]
-    labels = [' '.join(get_encoded_code_tokens(label)) for label in labels]
+    # labels = [' '.join(get_encoded_code_tokens(label)) for label in labels]
     eval_results = calculate_bleu_from_lists(gold_texts=labels, predicted_texts=preds)
     print(eval_results)
     return eval_results
