@@ -24,6 +24,7 @@ class T5LMClassifier:
                  max_seq_length,
                  output_model_dir,
                  pretrained_model_name_or_path,
+                 tokenizer_name_or_path=None,
                  threads=4,
                  cache_dir='data/pretrained/',
                  do_lower_case=True,
@@ -36,6 +37,7 @@ class T5LMClassifier:
 
         self.logger = logging.getLogger(__name__)
         self.pretrained_model_name_or_path = pretrained_model_name_or_path
+        self.tokenizer_name_or_path = tokenizer_name_or_path or pretrained_model_name_or_path
         self.cache_dir = cache_dir
         self.threads = threads
         # Setup logging
@@ -75,7 +77,7 @@ class T5LMClassifier:
 
         self.config = T5Config.from_pretrained(pretrained_model_name_or_path=self.pretrained_model_name_or_path,
                                                  cache_dir=self.cache_dir)
-        self.tokenizer = T5Tokenizer.from_pretrained(pretrained_model_name_or_path=self.pretrained_model_name_or_path,
+        self.tokenizer = T5Tokenizer.from_pretrained(pretrained_model_name_or_path=self.tokenizer_name_or_path,
                                                      do_lower_case=do_lower_case,
                                                      cache_dir=self.cache_dir)
         #
