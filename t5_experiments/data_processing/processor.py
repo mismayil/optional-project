@@ -17,10 +17,9 @@ def load_and_cache_examples(data_file, local_rank, max_seq_length, tokenizer, ev
     labels = []
     for i, pair in enumerate(json.load(open(data_file, 'r'))):
         text_a = pair[input_label]
-        label = str(pair[target_label])+''
-        encoded_reconstr_code = get_encoded_code_tokens(label)
-        label = ' '.join(encoded_reconstr_code)
-
+        label = pair[target_label]
+        # encoded_reconstr_code = get_encoded_code_tokens(label)
+        # label = ' '.join(encoded_reconstr_code)
         labels.append(label.lower())
         guid = str(i)
         ex = InputExample(guid=guid, text_a=text_a, text_b=None, label=label)
