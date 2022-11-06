@@ -260,7 +260,7 @@ class T5LMClassifier:
                                                   model=model,
                                                   max_generated_tokens=48)
                             # labels = [' '.join(get_encoded_code_tokens(label)) for label in val_labels]
-                            bleu, exact = calculate_bleu_from_lists(gold_texts=labels,
+                            bleu, exact = calculate_bleu_from_lists(gold_texts=val_labels,
                                                            predicted_texts=preds)
                             wandb.log({"val_bleu": bleu})
                             print(exact, bleu)
