@@ -5,11 +5,20 @@ from torch.utils.data import Dataset
 import pandas as pd
 import re
 import itertools
+import json
 
 nlp = spacy.load("en_core_web_sm")
 
 doc_cache = {}
 sent_cache = {}
+
+def read_json(filepath):
+    with open(filepath) as f:
+        return json.load(f)
+
+def write_json(obj, filepath, indent=2):
+    with open(filepath, "w") as f:
+        json.dump(obj, f, indent=indent)
 
 def get_doc(text):
     if text not in doc_cache:
