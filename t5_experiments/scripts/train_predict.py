@@ -4,6 +4,7 @@ import os
 from t5_experiments.eval.conala_eval import calculate_bleu_from_lists
 from t5_experiments.t5_lm import T5LMClassifier
 from t5_experiments.data_processing.utils import read_labels, get_encoded_code_tokens
+import sacrebleu
 
 DATA_FOLDER = 'data'
 
@@ -63,12 +64,13 @@ def evaluate(test_file, trained_models_dir,
 
     preds = _classifier.predict(test_file=test_file,
                                 per_gpu_eval_batch_size=per_gpu_eval_batch_size,
-                                max_generated_tokens=sequence_length, input_label=input_label, output_label=output_label)
+                                max_generated_tokens=max_output_length, input_label=input_label, output_label=output_label)
     labels = read_labels(test_file, tag=output_label)
     labels = [l.lower() for l in labels]
     preds = [p.lower() for p in preds]
     # labels = [' '.join(get_encoded_code_tokens(label)) for label in labels]
     eval_results = calculate_bleu_from_lists(gold_texts=labels, predicted_texts=preds)
+    # eval_results = sacrebleu.corpus_bleu(preds, labels).score
     print(eval_results)
     return eval_results
 

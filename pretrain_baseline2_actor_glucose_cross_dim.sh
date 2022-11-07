@@ -6,7 +6,7 @@ ${CONDA} run -n op --no-capture-output \
     --validation-file data/glucose_cross_dim_val_data.json \
     --language-model allenai/unifiedqa-t5-base \
     --model-dir /scratch/mete/op_baseline2_actor_pretrained_glucose_cross_dim \
-    --epochs 10 \
+    --epochs 5 \
     --batch-size 16 \
     --val-batch-size 16 \
     --input-label model_input \

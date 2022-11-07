@@ -328,7 +328,7 @@ class T5LMClassifier:
                     outs = model.generate(input_ids=batch[0].cuda(),
                                           attention_mask=batch[1].cuda(),
                                           max_new_tokens=max_generated_tokens)
-                dec = [self.tokenizer.decode(ids) for ids in outs]
+                dec = [self.tokenizer.decode(ids, skip_special_tokens=True) for ids in outs]
                 preds.extend(dec)
                 # outputs = model(**inputs)
         return preds
