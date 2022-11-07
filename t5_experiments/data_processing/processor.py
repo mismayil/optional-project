@@ -29,14 +29,14 @@ def load_and_cache_examples(data_file, local_rank, max_seq_length, tokenizer, ev
     tokenized_inputs = tokenizer.batch_encode_plus(
         [ex.text_a for ex in examples],
         max_length=max_seq_length,
-        pad_to_max_length=True,
+        padding='longest',
         return_tensors="pt",
     )
     # tokenize targets
     tokenized_targets = tokenizer.batch_encode_plus(
         [ex.label for ex in examples],
         max_length=max_seq_length,
-        pad_to_max_length=True,
+        padding='longest',
         return_tensors="pt",
         truncation_strategy='do_not_truncate'
     )

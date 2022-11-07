@@ -265,7 +265,7 @@ class T5LMClassifier:
                             preds = self._predict(eval_dataset=val_dataset,
                                                   per_gpu_eval_batch_size=per_gpu_train_batch_size,
                                                   model=model,
-                                                  max_generated_tokens=48)
+                                                  max_generated_tokens=self.max_output_length)
                             # labels = [' '.join(get_encoded_code_tokens(label)) for label in val_labels]
                             bleu, exact = calculate_bleu_from_lists(gold_texts=val_labels,
                                                            predicted_texts=preds)
@@ -323,11 +323,11 @@ class T5LMClassifier:
                 if self.n_gpu > 1:
                     outs = model.module.generate(input_ids=batch[0].cuda(),
                                             attention_mask=batch[1].cuda(),
-                                            max_length=max_generated_tokens)
+                                            max_new_tokens=max_generated_tokens)
                 else:
                     outs = model.generate(input_ids=batch[0].cuda(),
                                           attention_mask=batch[1].cuda(),
-                                          max_length=max_generated_tokens)
+                                          max_new_tokens=max_generated_tokens)
                 dec = [self.tokenizer.decode(ids) for ids in outs]
                 preds.extend(dec)
                 # outputs = model(**inputs)
