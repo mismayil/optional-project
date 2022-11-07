@@ -14,7 +14,8 @@ def training(training_file, dev_file,
              epochs,
              language_model,
              grad_acc,
-             sequence_length,
+             max_input_length=256,
+             max_output_length=60,
              optimizer_algorithm='adam',
              noisy_file=None,
              input_label='model_input',
@@ -26,7 +27,8 @@ def training(training_file, dev_file,
     if not os.path.exists(trained_models_dir):
         os.mkdir(trained_models_dir)
     classifier = T5LMClassifier(
-            max_seq_length=sequence_length,
+            max_input_length=max_input_length,
+            max_output_length=max_output_length,
             output_model_dir=trained_models_dir,
             cache_dir=os.path.join(DATA_FOLDER, 'pretrained'),
             pretrained_model_name_or_path=language_model,
@@ -45,9 +47,14 @@ def training(training_file, dev_file,
                     wandb_run_name=wandb_run_name)
 
 
-def evaluate(test_file, trained_models_dir, sequence_length,
-             per_gpu_eval_batch_size, language_model, input_label="model_input", output_label="model_output", tokenizer=None):
-    _classifier = T5LMClassifier(max_seq_length=sequence_length,
+def evaluate(test_file, trained_models_dir,
+             per_gpu_eval_batch_size, 
+             language_model,
+             max_input_length=256,
+             max_output_length=60,
+             input_label="model_input", output_label="model_output", tokenizer=None):
+    _classifier = T5LMClassifier(max_input_length=max_input_length,
+                                 max_output_length=max_output_length,
                                  output_model_dir=trained_models_dir,
                                  cache_dir=os.path.join(DATA_FOLDER, 'pretrained'),
                                  pretrained_model_name_or_path=language_model,
@@ -92,7 +99,8 @@ def parse_args():
     parser.add_argument('--output-label', type=str, default="model_output", help="Output label name.")
     parser.add_argument("--wandb-project", type=str, default="optional-project", help="Wandb project name")
     parser.add_argument("--wandb-run-name", type=str, default=None, help="Wandb run name")
-    parser.add_argument("--max-seq-length", type=int, default=48, help="Maximum sequence length for training.")
+    parser.add_argument("--max-input-length", type=int, default=256, help="Maximum sequence length for input.")
+    parser.add_argument("--max-output-length", type=int, default=60, help="Maximum sequence length for output.")
     args = parser.parse_args()
     return args
 
@@ -107,7 +115,8 @@ def main():
                  per_gpu_train_batch_size=int(args.batch_size),
                  epochs=int(args.epochs),
                  learning_rate=float(args.lr),
-                 sequence_length=args.max_seq_length,
+                 max_input_length=args.max_input_length,
+                 max_output_length=args.max_output_length,
                  noisy_file=args.noisy_file,
                  language_model=language_model,
                  tokenizer=args.tokenizer,
@@ -120,7 +129,8 @@ def main():
             evaluation_results = evaluate(test_file=args.validation_file,
                                       trained_models_dir=args.model_dir,
                                       per_gpu_eval_batch_size=int(args.val_batch_size),
-                                      sequence_length=args.max_seq_length,
+                                      max_input_length=args.max_input_length,
+                                      max_output_length=args.max_output_length,
                                       language_model=language_model,
                                       tokenizer=args.tokenizer,
                                       input_label=args.input_label,

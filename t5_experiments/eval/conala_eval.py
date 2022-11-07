@@ -141,8 +141,8 @@ def evaluate_bleu(reference_list, hypothesis_list):
 def calculate_bleu_from_lists(gold_texts, predicted_texts):
     for g, p in zip(predicted_texts[:5], gold_texts[:5]):
         print(g, '||', p)
-    c_hyp = [tokenize_for_bleu_eval(s) for s in predicted_texts]
-    c_ref = [tokenize_for_bleu_eval(s) for s in gold_texts]
+    c_hyp = [tokenize_for_bleu_eval(s.lower()) for s in predicted_texts]
+    c_ref = [tokenize_for_bleu_eval(s.lower()) for s in gold_texts]
     bleu_tup = bleu_score.compute_bleu([[x] for x in c_ref], c_hyp, smooth=False)
     bleu = bleu_tup[0]
     exact = sum([1 if h == r else 0 for h, r in zip(c_hyp, c_ref)])/len(c_hyp)

@@ -21,10 +21,11 @@ logger = logging.getLogger(__name__)
 
 class T5LMClassifier:
     def __init__(self,
-                 max_seq_length,
                  output_model_dir,
                  pretrained_model_name_or_path,
                  tokenizer_name_or_path=None,
+                 max_input_length=256,
+                 max_output_length=60,
                  threads=4,
                  cache_dir='data/pretrained/',
                  do_lower_case=True,
@@ -32,7 +33,8 @@ class T5LMClassifier:
                  fp16=False,
                  fp16_opt_level='01',
                  ):
-        self.max_seq_length = max_seq_length
+        self.max_input_length = max_input_length
+        self.max_output_length = max_output_length
         self.output_model_dir = output_model_dir
 
         self.logger = logging.getLogger(__name__)
@@ -116,22 +118,25 @@ class T5LMClassifier:
             "input_label": input_label,
             "output_label": output_label,
             "output_dir": self.output_model_dir,
-            "max_seq_length": self.max_seq_length
+            "max_input_length": self.max_input_length,
+            "max_output_length": self.max_output_length,
+            "model": self.pretrained_model_name_or_path,
+            "tokenizer": self.tokenizer_name_or_path
         }
         wandb.init(project=wandb_project, config=config, name=wandb_run_name)
 
         """ Train the model """
         train_batch_size = per_gpu_train_batch_size * max(1, self.n_gpu)
         train_dataset, _ = load_and_cache_examples(data_file=training_file, local_rank=self.local_rank,
-                                                   max_seq_length=self.max_seq_length, tokenizer=self.tokenizer,
+                                                   max_seq_length=self.max_input_length, tokenizer=self.tokenizer,
                                                    evaluate=False, input_label=input_label, target_label=output_label)
         if noisy_file:
             noisy_dataset, _ = load_and_cache_examples(data_file=noisy_file, local_rank=self.local_rank,
-                                                       max_seq_length=self.max_seq_length, tokenizer=self.tokenizer,
+                                                       max_seq_length=self.max_input_length, tokenizer=self.tokenizer,
                                                        evaluate=False, input_label=input_label, target_label=output_label)
 
         val_dataset, val_labels = load_and_cache_examples(data_file=dev_file, local_rank=self.local_rank,
-                                                          max_seq_length=self.max_seq_length, tokenizer=self.tokenizer,
+                                                          max_seq_length=self.max_input_length, tokenizer=self.tokenizer,
                                                           evaluate=False, input_label=input_label, target_label=output_label)
         train_sampler = RandomSampler(train_dataset) if self.local_rank == -1 else DistributedSampler(train_dataset)
         if noisy_file:
@@ -284,7 +289,7 @@ class T5LMClassifier:
                 input_label='model_input',
                 output_label='model_output'):
         eval_dataset, _ = load_and_cache_examples(test_file, local_rank=self.local_rank,
-                                                  max_seq_length=self.max_seq_length, tokenizer=self.tokenizer,
+                                                  max_seq_length=self.max_input_length, tokenizer=self.tokenizer,
                                                   evaluate=True, input_label=input_label, target_label=output_label)
         model = T5ForConditionalGeneration.from_pretrained(self.output_model_dir)
         return self._predict(eval_dataset=eval_dataset,

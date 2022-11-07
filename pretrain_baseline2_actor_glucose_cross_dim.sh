@@ -7,8 +7,10 @@ ${CONDA} run -n op --no-capture-output \
     --language-model allenai/unifiedqa-t5-base \
     --model-dir /scratch/mete/op_baseline2_actor_pretrained_glucose_cross_dim \
     --epochs 10 \
-    --batch-size 32 \
-    --val-batch-size 32 \
+    --batch-size 16 \
+    --val-batch-size 16 \
     --input-label model_input \
     --output-label critique_output \
+    --max-input-length 256 \
+    --max-output-length 60 \
     --wandb-run-name baseline2_actor_pretrained_glucose_cross_dim
