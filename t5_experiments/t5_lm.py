@@ -18,6 +18,7 @@ from t5_experiments.eval.conala_eval import calculate_bleu_from_lists
 
 logger = logging.getLogger(__name__)
 
+MASK_TOKEN = "<MASK>"
 
 class T5LMClassifier:
     def __init__(self,
@@ -82,8 +83,7 @@ class T5LMClassifier:
         self.tokenizer = T5Tokenizer.from_pretrained(pretrained_model_name_or_path=self.tokenizer_name_or_path,
                                                      do_lower_case=do_lower_case,
                                                      cache_dir=self.cache_dir)
-        #
-        # self.tokenizer.add_tokens(new_tokens=new_tokens)
+        self.tokenizer.add_special_tokens({"additional_special_tokens": [MASK_TOKEN]})
 
     def train(self, training_file,
               dev_file,
@@ -158,6 +158,7 @@ class T5LMClassifier:
             cache_dir=self.cache_dir,
         )
         model.to(self.device)
+        model.resize_token_embeddings(len(self.tokenizer))
 
         # Prepare optimizer and schedule (linear warmup and decay)
         no_decay = ["bias", "LayerNorm.weight"]
@@ -280,6 +281,8 @@ class T5LMClassifier:
                                 val_bleu = bleu
                             else:
                                 print('bleu on dev set did not improve:', bleu)
+
+        self.tokenizer.save_pretrained(self.output_model_dir)
 
         return global_step, tr_loss / global_step
 

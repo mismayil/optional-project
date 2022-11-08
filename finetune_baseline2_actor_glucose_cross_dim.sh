@@ -5,7 +5,6 @@ ${CONDA} run -n op --no-capture-output \
     --training-file data/glucose_cross_dim_train_data.json \
     --validation-file data/glucose_cross_dim_val_data.json \
     --language-model /scratch/mete/op_baseline2_actor_pretrained_glucose_cross_dim \
-    --tokenizer allenai/unifiedqa-t5-base \
     --model-dir /scratch/mete/op_baseline2_actor_glucose_cross_dim \
     --epochs 5 \
     --batch-size 16 \
