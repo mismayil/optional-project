@@ -30,7 +30,7 @@ def generate_negative_context(sample):
         return negative_context
     
     negative_sent_idx = np.random.choice(list(range(mask_index)))
-    negative_context = sample["context"][:negative_sent_idx-1] + [MASK_TOKEN]
+    negative_context = sample["context"][:max(0, negative_sent_idx-1)] + [MASK_TOKEN]
     negative_context += [f"*{sample['context'][negative_sent_idx].strip('*')}*"]
     negative_context += [sent.strip("*") for sent in sample["context"][negative_sent_idx+1:mask_index]]
     negative_context += [sample["masked_sentence"]] if sample["masked_sentence"] is not None else []
