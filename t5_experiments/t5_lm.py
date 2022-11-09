@@ -19,6 +19,7 @@ from t5_experiments.eval.conala_eval import calculate_bleu_from_lists
 logger = logging.getLogger(__name__)
 
 MASK_TOKEN = "<MASK>"
+SEP_TOKEN = "<SEP>"
 
 class T5LMClassifier:
     def __init__(self,
@@ -83,7 +84,7 @@ class T5LMClassifier:
         self.tokenizer = T5Tokenizer.from_pretrained(pretrained_model_name_or_path=self.tokenizer_name_or_path,
                                                      do_lower_case=do_lower_case,
                                                      cache_dir=self.cache_dir)
-        self.tokenizer.add_special_tokens([MASK_TOKEN])
+        self.tokenizer.add_special_tokens([MASK_TOKEN, SEP_TOKEN])
 
     def train(self, training_file,
               dev_file,
