@@ -38,7 +38,7 @@ def generate_negative_context(sample):
     return negative_context
 
 def generate_negative_samples(data, model, tokenizer, batch_size=32, max_input_length=256, max_output_length=60, num_generate=3):
-    for batch in tqdm(chunks(data, batch_size), total=(len(data)/batch_size), desc="Generating"):
+    for batch in tqdm(chunks(data, batch_size), total=np.ceil(len(data)/batch_size), desc="Generating"):
         tokenized_data = tokenizer.batch_encode_plus(
                     [" ".join(generate_negative_context(sample)) for sample in batch],
                     max_length=max_input_length,
