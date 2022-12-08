@@ -20,6 +20,16 @@ def write_json(obj, filepath, indent=2):
     with open(filepath, "w") as f:
         json.dump(obj, f, indent=indent)
 
+def read_jsonl(filepath):
+    data = []
+
+    with open(filepath) as f:
+        lines = f.readlines()
+        for line in lines:
+            data.append(json.loads(line))
+
+    return data
+
 def get_doc(text):
     if text not in doc_cache:
         doc = nlp(text)
