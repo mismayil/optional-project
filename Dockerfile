@@ -52,6 +52,8 @@ ARG VERSION_TAINT=0
 # Setup data
 COPY ./data  ${OP_DIR}/data
 
+ARG GIT_TAINT=0
+
 RUN git pull
 
 CMD ["/usr/sbin/sshd", "-D"]
