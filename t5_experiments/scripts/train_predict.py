@@ -1,5 +1,7 @@
 import argparse
 import os
+import json
+import pathlib
 
 from t5_experiments.eval.conala_eval import calculate_bleu_from_lists
 from t5_experiments.t5_lm import T5LMClassifier
@@ -53,7 +55,10 @@ def evaluate(test_file, trained_models_dir,
              language_model,
              max_input_length=256,
              max_output_length=60,
-             input_label="model_input", output_label="model_output", tokenizer=None):
+             input_label="model_input",
+             output_label="model_output",
+             tokenizer=None,
+             save_results=None):
     _classifier = T5LMClassifier(max_input_length=max_input_length,
                                  max_output_length=max_output_length,
                                  output_model_dir=trained_models_dir,
@@ -72,6 +77,21 @@ def evaluate(test_file, trained_models_dir,
     eval_results = calculate_bleu_from_lists(gold_texts=labels, predicted_texts=preds)
     # eval_results = sacrebleu.corpus_bleu(preds, labels).score
     print(eval_results)
+
+    if save_results:
+        with open(test_file) as f:
+            test_data = json.load(f)
+        
+        for i, pred in enumerate(preds):
+            test_data[i]["prediction"] = pred
+        
+        test_path = pathlib.Path(test_file)
+        with open(f"{save_results}/{test_path.stem}_with_preds.json", "w") as f:
+            json.dump(test_data, f, indent=2)
+        
+        with open(f"{save_results}/{test_path.stem}_metrics.txt", "w") as f:
+            f.write(str(eval_results))
+
     return eval_results
 
 def parse_args():
@@ -82,6 +102,7 @@ def parse_args():
     parser.add_argument('--noisy-file', dest='noisy_file', required=False, help='Path to noisy file',
                         default=None)
     parser.add_argument('--validation-file', dest='validation_file', required=False, help='Path to validation file')
+    parser.add_argument('--save-results', type=str, default=None, help="Save results to given path")
     parser.add_argument('--language-model', default='t5-base', help='Can be either some huggingface model or a '
                                                                          'path to a model. If the path is in GCS we '
                                                                          'download it first.')
@@ -128,15 +149,16 @@ def main():
                  wandb_project=args.wandb_project,
                  wandb_run_name=args.wandb_run_name)
     if args.validation_file:
-            evaluation_results = evaluate(test_file=args.validation_file,
-                                      trained_models_dir=args.model_dir,
-                                      per_gpu_eval_batch_size=int(args.val_batch_size),
-                                      max_input_length=args.max_input_length,
-                                      max_output_length=args.max_output_length,
-                                      language_model=language_model,
-                                      tokenizer=args.tokenizer,
-                                      input_label=args.input_label,
-                                      output_label=args.output_label
-                                    )
+        evaluation_results = evaluate(test_file=args.validation_file,
+                                    trained_models_dir=args.model_dir,
+                                    per_gpu_eval_batch_size=int(args.val_batch_size),
+                                    max_input_length=args.max_input_length,
+                                    max_output_length=args.max_output_length,
+                                    language_model=language_model,
+                                    tokenizer=args.tokenizer,
+                                    input_label=args.input_label,
+                                    output_label=args.output_label,
+                                    save_results=args.save_results
+                                )
 if __name__ == '__main__':
     main()
