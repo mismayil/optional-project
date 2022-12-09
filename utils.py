@@ -6,6 +6,7 @@ import pandas as pd
 import re
 import itertools
 import json
+from itertools import product
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -148,3 +149,104 @@ class GlucoseDataset(Dataset):
             "attention_mask": source_mask.to(dtype=torch.long),
             "labels": target_ids.to(dtype=torch.long),
         }
+
+def get_noun_phrases(token):
+    if token.pos_ == "NOUN":
+        if hasattr(token, "children"):
+            det = None
+            amods = []
+            preps = []
+            compounds = []
+
+            for child in token.children:
+                if child.dep_ == "det":
+                    det = child
+                elif child.dep_ == "amod":
+                    amods.append(child)
+                elif child.dep_ == "compound":
+                    compounds.append(child)
+                elif child.dep_ == "prep":
+                    preps.append(child)
+            
+            phrase = ""
+
+            if det:
+                phrase += f"{det.text} "
+            
+            if amods:
+                phrase += f"{' '.join([amod.text for amod in amods])} "
+            
+            if compounds:
+                phrase += f"{' '.join([comp.text for comp in compounds])} "
+            
+            phrase = f"{phrase}{token.text}"
+
+            child_phrases = []
+
+            for prep in preps:
+                prep_phrases = get_noun_phrases(prep)
+                if prep_phrases:
+                    child_phrases.extend([f"{prep.text} {prep_phrase}" for prep_phrase in prep_phrases])
+            
+            return [phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
+        return [token.text]
+    elif token.dep_ == "prep":
+        if hasattr(token, "children"):
+            for child in token.children:
+                if child.dep_ == "pobj":
+                    return get_noun_phrases(child)
+
+    return []
+
+def get_verb_phrases(token):
+    if token.pos_ == "VERB":
+        if hasattr(token, "children"):
+            dobj = None
+            prts = []
+            preps = []
+
+            for child in token.children:
+                if child.dep_ == "dobj":
+                    dobj = child
+                elif child.dep_ == "prt":
+                    prts.append(child)
+                elif child.dep_ == "prep":
+                    preps.append(child)
+            
+            phrases = []
+            verb = f"to {token.lemma_}"
+
+            if prts:
+                verb = f"{verb} {' '.join([prt.text for prt in prts])}"
+
+            dobj_phrases = []
+
+            if dobj:
+                dobj_phrases = get_noun_phrases(dobj)
+            
+            prep_phrases = []
+
+            for prep in preps:
+                prep_phrases.extend([f"{prep.text} {ph}" for ph in get_noun_phrases(prep)])
+            
+            for ph in dobj_phrases:
+                phrases.append(f"{verb} {ph}")
+            
+            for d_ph, p_ph in product(dobj_phrases, prep_phrases):
+                phrases.append(f"{verb} {d_ph} {p_ph}")
+            
+            final_phrase = ""
+
+            if dobj_phrases:
+                longest_dobj_phrase = max(dobj_phrases, key=len)
+                final_phrase += f" {longest_dobj_phrase}"
+            
+            if prep_phrases:
+                longest_prep_phrase = max(prep_phrases, key=len)
+                final_phrase += f" {longest_prep_phrase}"
+            
+            if final_phrase:
+                phrases.append(f"{verb}{final_phrase}")
+
+            return set(phrases)
+    return []
