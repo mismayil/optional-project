@@ -5,7 +5,7 @@ ${CONDA} run -n op --no-capture-output \
     --training-file data/moral_stories/norm-actions+context+consequences/norm_distance/actor_train.json \
     --validation-file data/moral_stories/norm-actions+context+consequences/norm_distance/actor_dev.json \
     --language-model allenai/unifiedqa-t5-base \
-    --model-dir /scratch/mete/op_baseline_actor_moral_stories \
+    --model-dir /scratch/mete/op/op_baseline_actor_moral_stories \
     --epochs 5 \
     --batch-size 16 \
     --val-batch-size 16 \

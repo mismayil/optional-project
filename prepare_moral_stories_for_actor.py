@@ -16,7 +16,7 @@ def main():
     for sample in tqdm(data, total=len(data), desc="Preparing"):
         situation = sample["situation"]
         intention = sample["intention"]
-        moral_action = sample["moral_action"]
+        moral_action = sample["immoral_action"]
         norm = sample["norm"]
 
         actor_data.append({
