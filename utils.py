@@ -217,7 +217,7 @@ def get_verb_phrases(token):
                     preps.append(child)
             
             phrases = []
-            verb = f"to {token.lemma_}"
+            verb = f"{token.lemma_}"
 
             if prts:
                 verb = f"{verb} {' '.join([prt.text for prt in prts])}"
