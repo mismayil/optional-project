@@ -5,6 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "prepare_moral_stories_for_critic.py",
+            "type": "python",
+            "request": "launch",
+            "program": "prepare_moral_stories_for_critic_with_negatives.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["--datapath", "data/moral_stories/norm-actions+context+consequences/norm_distance/sample.jsonl", "--neg-datapath", "data/contrastive_moral_stories/anti-ms/sample.jsonl"]
+        },
+        {
             "name": "overlap.py",
             "type": "python",
             "request": "launch",

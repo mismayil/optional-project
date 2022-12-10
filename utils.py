@@ -184,17 +184,20 @@ def get_noun_phrases(token):
             child_phrases = []
 
             for prep in preps:
-                prep_phrases = get_noun_phrases(prep)
+                prep_phrases = get_prep_phrases(prep)
                 if prep_phrases:
-                    child_phrases.extend([f"{prep.text} {prep_phrase}" for prep_phrase in prep_phrases])
+                    child_phrases.extend(prep_phrases)
             
             return [phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
         return [token.text]
-    elif token.dep_ == "prep":
-        if hasattr(token, "children"):
-            for child in token.children:
-                if child.dep_ == "pobj":
-                    return get_noun_phrases(child)
+
+    return []
+
+def get_prep_phrases(token):
+    if hasattr(token, "children"):
+        for child in token.children:
+            if child.dep_ == "pobj":
+                return [f"{token.text} {ph}" for ph in get_noun_phrases(child)]
 
     return []
 
@@ -227,7 +230,7 @@ def get_verb_phrases(token):
             prep_phrases = []
 
             for prep in preps:
-                prep_phrases.extend([f"{prep.text} {ph}" for ph in get_noun_phrases(prep)])
+                prep_phrases.extend(get_prep_phrases(prep))
             
             for ph in dobj_phrases:
                 phrases.append(f"{verb} {ph}")
@@ -248,5 +251,5 @@ def get_verb_phrases(token):
             if final_phrase:
                 phrases.append(f"{verb}{final_phrase}")
 
-            return set(phrases)
+            return list(set(phrases))
     return []
