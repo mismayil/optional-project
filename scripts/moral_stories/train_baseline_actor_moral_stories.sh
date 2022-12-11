@@ -20,4 +20,4 @@ ${CONDA} run -n op --no-capture-output \
     --max-input-length 256 \
     --max-output-length 60 \
     --wandb-run-name baseline_actor_moral_stories \
-    --special-tokens ${SITUATION_TOKEN} ${INTENTION_TOKEN} ${MORAL_ACTION_TOKEN} ${IMMORAL_ACTION_TOKEN} ${NORM_TOKEN}
+    --special-tokens '${SITUATION_TOKEN}' '${INTENTION_TOKEN}' '${MORAL_ACTION_TOKEN}' '${IMMORAL_ACTION_TOKEN}' '${NORM_TOKEN}'
