@@ -34,6 +34,7 @@ class T5LMClassifier:
                  local_rank=-1,
                  fp16=False,
                  fp16_opt_level='01',
+                 special_tokens=None
                  ):
         self.max_input_length = max_input_length
         self.max_output_length = max_output_length
@@ -85,6 +86,9 @@ class T5LMClassifier:
                                                      do_lower_case=do_lower_case,
                                                      cache_dir=self.cache_dir)
         self.tokenizer.add_special_tokens({"additional_special_tokens": [MASK_TOKEN, SEP_TOKEN]})
+        
+        if special_tokens:
+            self.tokenizer.add_special_tokens({"additional_special_tokens": special_tokens})
 
     def train(self, training_file,
               dev_file,

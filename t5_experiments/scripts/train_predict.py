@@ -25,7 +25,8 @@ def training(training_file, dev_file,
              output_label='model_output',
              wandb_project="optional-project",
              wandb_run_name=None,
-             tokenizer=None):
+             tokenizer=None,
+             special_tokens=None):
 
     if not os.path.exists(trained_models_dir):
         os.mkdir(trained_models_dir)
@@ -35,7 +36,8 @@ def training(training_file, dev_file,
             output_model_dir=trained_models_dir,
             cache_dir=os.path.join(DATA_FOLDER, 'pretrained'),
             pretrained_model_name_or_path=language_model,
-            tokenizer_name_or_path=tokenizer
+            tokenizer_name_or_path=tokenizer,
+            special_tokens=special_tokens
     )
     classifier.train(training_file, dev_file,
                     per_gpu_train_batch_size=per_gpu_train_batch_size,
@@ -58,13 +60,15 @@ def evaluate(test_file, trained_models_dir,
              input_label="model_input",
              output_label="model_output",
              tokenizer=None,
-             save_results=None):
+             save_results=None,
+             special_tokens=None):
     _classifier = T5LMClassifier(max_input_length=max_input_length,
                                  max_output_length=max_output_length,
                                  output_model_dir=trained_models_dir,
                                  cache_dir=os.path.join(DATA_FOLDER, 'pretrained'),
                                  pretrained_model_name_or_path=language_model,
-                                 tokenizer_name_or_path=tokenizer
+                                 tokenizer_name_or_path=tokenizer,
+                                 special_tokens=special_tokens
                                  )
 
     preds = _classifier.predict(test_file=test_file,
@@ -124,6 +128,8 @@ def parse_args():
     parser.add_argument("--wandb-run-name", type=str, default=None, help="Wandb run name")
     parser.add_argument("--max-input-length", type=int, default=256, help="Maximum sequence length for input.")
     parser.add_argument("--max-output-length", type=int, default=60, help="Maximum sequence length for output.")
+    parser.add_argument("--special-tokens", type=str, nargs="*", default=[], help="Additional special tokens to add to tokenizer.")
+
     args = parser.parse_args()
     return args
 
