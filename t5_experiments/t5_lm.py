@@ -90,11 +90,12 @@ class T5LMClassifier:
         self.tokenizer = T5Tokenizer.from_pretrained(pretrained_model_name_or_path=self.tokenizer_name_or_path,
                                                      do_lower_case=do_lower_case,
                                                      cache_dir=self.cache_dir)
-        self.tokenizer.add_special_tokens({"additional_special_tokens": [MASK_TOKEN, SEP_TOKEN]})
-        self.tokenizer.add_special_tokens({"additional_special_tokens": [SITUATION_TOKEN, INTENTION_TOKEN, MORAL_ACTION_TOKEN, IMMORAL_ACTION_TOKEN, NORM_TOKEN]})
+        additional_tokens = [MASK_TOKEN, SEP_TOKEN, SITUATION_TOKEN, INTENTION_TOKEN, MORAL_ACTION_TOKEN, IMMORAL_ACTION_TOKEN, NORM_TOKEN]
         
         if special_tokens:
-            self.tokenizer.add_special_tokens({"additional_special_tokens": special_tokens})
+            additional_tokens += special_tokens
+        
+        self.tokenizer.add_special_tokens({"additional_special_tokens": additional_tokens})
 
     def train(self, training_file,
               dev_file,
