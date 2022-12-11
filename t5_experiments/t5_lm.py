@@ -20,6 +20,11 @@ logger = logging.getLogger(__name__)
 
 MASK_TOKEN = "<MASK>"
 SEP_TOKEN = "<SEP>"
+SITUATION_TOKEN = "<|SIT|>"
+INTENTION_TOKEN = "<|INT|>"
+MORAL_ACTION_TOKEN = "<|M_ACT|>"
+IMMORAL_ACTION_TOKEN = "<|I_ACT|>"
+NORM_TOKEN = "<|NRM|>"
 
 class T5LMClassifier:
     def __init__(self,
@@ -86,6 +91,7 @@ class T5LMClassifier:
                                                      do_lower_case=do_lower_case,
                                                      cache_dir=self.cache_dir)
         self.tokenizer.add_special_tokens({"additional_special_tokens": [MASK_TOKEN, SEP_TOKEN]})
+        self.tokenizer.add_special_tokens({"additional_special_tokens": [SITUATION_TOKEN, INTENTION_TOKEN, MORAL_ACTION_TOKEN, IMMORAL_ACTION_TOKEN, NORM_TOKEN]})
         
         if special_tokens:
             self.tokenizer.add_special_tokens({"additional_special_tokens": special_tokens})
