@@ -153,7 +153,8 @@ def main():
                  input_label=args.input_label,
                  output_label=args.output_label,
                  wandb_project=args.wandb_project,
-                 wandb_run_name=args.wandb_run_name)
+                 wandb_run_name=args.wandb_run_name,
+                 special_tokens=args.special_tokens)
     if args.validation_file:
         evaluation_results = evaluate(test_file=args.validation_file,
                                     trained_models_dir=args.model_dir,
@@ -164,7 +165,8 @@ def main():
                                     tokenizer=args.tokenizer,
                                     input_label=args.input_label,
                                     output_label=args.output_label,
-                                    save_results=args.save_results
+                                    save_results=args.save_results,
+                                    special_tokens=args.special_tokens
                                 )
 if __name__ == '__main__':
     main()
