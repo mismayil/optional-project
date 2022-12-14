@@ -83,6 +83,8 @@ def evaluate(test_file, trained_models_dir,
     print(eval_results)
 
     if save_results:
+        pathlib.Path(save_results).mkdir(exist_ok=True)
+
         with open(test_file) as f:
             test_data = json.load(f)
         
@@ -90,7 +92,7 @@ def evaluate(test_file, trained_models_dir,
             test_data[i]["prediction"] = pred
         
         test_path = pathlib.Path(test_file)
-        with open(f"{save_results}/{test_path.stem}_with_preds.json", "w") as f:
+        with open(f"{save_results}/{test_path.stem}_results.json", "w") as f:
             json.dump(test_data, f, indent=2)
         
         with open(f"{save_results}/{test_path.stem}_metrics.txt", "w") as f:
