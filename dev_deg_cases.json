@@ -1,0 +1,474 @@
+[
+  {
+    "id": "3UN61F00HXNWYQ7V0G6F8I1HEQT5RA1",
+    "situation": "While attending a Pearl harbor memorial in honor of her grandfather Marie comes across some Japanese WW2 vets who are paying their respects.",
+    "intention": "Marie wants to uphold her grandfathers memory.",
+    "immoral_action": "Marie loses her temper and calls the old men nazi's.",
+    "norm": "You shouldn't call Asians Nazi's.",
+    "anti_norm": "It's good to call Asians Nazi's.",
+    "fake_norms": [
+      "It's right to lose temper",
+      "You shouldn't pay respects",
+      "You should call the old men",
+      "It's right to uphold grandfathers memory",
+      "You shouldn't come across some WW2 vets",
+      "It's rude to attend a harbor memorial in honor of grandfather"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Marie talks to the Japanese vets about her grandfathers experience at Pearl Harbor.",
+    "moral_action_concepts": [
+      "talk to the Japanese vets about grandfathers experience"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3WS1NTTKEZA00TGLCF09AYR7W00F0B1",
+    "situation": "Theresa is a workaholic, but has woken up with a sore throat and a runny nose and feels run down.",
+    "intention": "Theresa wants to get over her illness.",
+    "immoral_action": "Theresa goes to work despite her symptoms and works like nothing is wrong.",
+    "norm": "Continuing to work when sick might make you sicker.",
+    "anti_norm": "If you're sick, you should keep working.",
+    "fake_norms": [
+      "It's bad to be a workaholic",
+      "It's rude to wake up with a sore throat",
+      "It's rude to go to work despite symptoms",
+      "It's bad to be wrong",
+      "It's right to get over illness"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Theresa takes a few days off until her symptoms subside.",
+    "moral_action_concepts": [
+      "take off a few days until symptoms subside"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "382M9COHEIDOA1S5FBUNHNUEZD6UE51",
+    "situation": "Cynthia's roommate is sleeping when Cynthia gets a call from her boyfriend.",
+    "intention": "Cynthia wants to talk to her boyfriend.",
+    "immoral_action": "Cynthia stays in bed, picks up her phone, and starts talking out loud with her boyfriend.",
+    "norm": "Roommates should respect each other.",
+    "anti_norm": "It's bad to respect your roomate.",
+    "fake_norms": [
+      "It's rude to stay in bed",
+      "It's wrong to talk to boyfriend",
+      "You should pick up phone",
+      "It's rude to talk with boyfriend",
+      "It's right to get a call from boyfriend"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Cynthia texts her boyfriend to wait a minute and goes out of the dorm to talk to her boyfriend.",
+    "moral_action_concepts": [
+      "talk to boyfriend",
+      "text boyfriend"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3AZHRG4CU5I5KH0SSKZ79P2ARWP03N1",
+    "situation": "Bastian is going on a camping trip with his Dad, but has a test coming up at school.",
+    "intention": "Bastian wants to enjoy his trip.",
+    "immoral_action": "Bastian enjoys being out in nature and forgets all about his big test.",
+    "norm": "You should always get your school work done.",
+    "anti_norm": "You shouldn't always get your school work done.",
+    "fake_norms": [
+      "You should forget about big test",
+      "You shouldn't be in nature",
+      "You shouldn't have a test",
+      "It's bad to come up at school",
+      "It's good to go on a camping trip",
+      "It's wrong to enjoy trip"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Bastian enjoys being out in nature and does his school work before bed each night.",
+    "moral_action_concepts": [
+      "do school work before bed",
+      "be in nature"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3R5F3LQFV3IR8RZ4FCWR3R374SGZOH1",
+    "situation": "\"Eva has been experiencing moments of \"\"lost time\"\", mood swings, and extreme disorientation in recent weeks.\"",
+    "intention": "Eva wants to feel less stressed about her symptoms.",
+    "immoral_action": "Eva begins drinking and smoking excessively to cope with the issues she is facing.",
+    "norm": "Mental health issues must be addressed directly and not avoided.",
+    "anti_norm": "Mental health issues should not be addressed directly.",
+    "fake_norms": [
+      "You should feel stressed about symptoms",
+      "It's rude to experience mood swings",
+      "You shouldn't cope with the issues"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Eva contacts a local mental health clinic and begins discussing her symptoms with a professional.",
+    "moral_action_concepts": [
+      "discuss symptoms with a professional",
+      "contact a local health clinic"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "324G5B4FB46NL01FUW2XM6EQXA070D1",
+    "situation": "Jack got married and his boss got him a very expensive gift.",
+    "intention": "Jack wants to thank his boss.",
+    "immoral_action": "Jack says thanks to his boss while passing him in the hallway at work.",
+    "norm": "It's expected that you write thank you notes",
+    "anti_norm": "It's rude to write thank you notes.",
+    "fake_norms": [
+      "It's rude to get a expensive gift",
+      "It's rude to pass him in the hallway at work",
+      "You shouldn't thank boss",
+      "It's rude to say thanks to boss"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Jack write a handwritten letter to his boss thanking him for the gift.",
+    "moral_action_concepts": [
+      "write a handwritten letter",
+      "thank him for the gift"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3B1NLC6UG0U92AG04KLH7KSR4GNGPE1",
+    "situation": "John is listening to some tunes on the radio while eating dinner with his family.",
+    "intention": "John wants to be a better singer on karaoke night.",
+    "immoral_action": "John starts singing along to a song on the radio as loudly as he can.",
+    "norm": "People might get annoyed if you practice singing too loud.",
+    "anti_norm": "It's good to practice singing too loud.",
+    "fake_norms": [
+      "You shouldn't listen to some tunes on the radio",
+      "You should eat dinner with family",
+      "It's good to be a better singer on karaoke night"
+    ],
+    "discarded_norms": [],
+    "moral_action": "John hums along with a song he likes on the radio.",
+    "moral_action_concepts": [
+      "like on the radio"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3Y54SXRO1MJQZKA256JIG9UF1H0UTP1",
+    "situation": "Mindy is a busy college student that also works full time.",
+    "intention": "Mindy wants to find a way to relive stress.",
+    "immoral_action": "Mindy begins smoking cigarettes.",
+    "norm": "Smoking cigarettes is considered an unhealthy habit.",
+    "anti_norm": "Smoking cigarettes is a good way to relieve yourself.",
+    "fake_norms": [
+      "You should be a busy college student",
+      "It's bad to smoke cigarettes",
+      "It's rude to relive stress",
+      "It's bad to find a way"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Mindy begins taking Yoga classes.",
+    "moral_action_concepts": [
+      "take Yoga classes"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3B2X28YI3XD51NQK92UU09ADTV3B6E1",
+    "situation": "Chris just got done with college and moved back in with his parents.",
+    "intention": "Chris wanted to find a job, so he could move out of his parents' house.",
+    "immoral_action": "Chris became a freelance pornstar in order to make money.",
+    "norm": "You should try to make your parents proud.",
+    "anti_norm": "It's unfortunate when children try to make their parents proud.",
+    "fake_norms": [
+      "It's wrong to find a job",
+      "It's right to make money",
+      "It's rude to do with college",
+      "It's bad to become a freelance pornstar in order",
+      "It's good to move with parents"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Chris starts a tech company that helps people learn how to code.",
+    "moral_action_concepts": [
+      "start a tech company"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3T111IHZ5FOFZD9736JWKY6J0PUR9B1",
+    "situation": "Molly is at a bar with her coworkers when they start discussing their dating lives.",
+    "intention": "Molly wants to impress her coworkers by appearing very hard to date.",
+    "immoral_action": "Molly remarks that online dating is a gross and unnecessary way to find a date because she gets plenty of attention in her daily life.",
+    "norm": "You shouldn't call online dating gross.",
+    "anti_norm": "It's good to call online dating gross.",
+    "fake_norms": [
+      "It's right to get plenty of attention in daily life",
+      "It's right to appear to date",
+      "It's bad to discuss dating lives",
+      "It's rude to be a gross way",
+      "It's rude to be at a bar with coworkers",
+      "It's rude to find a date",
+      "It's bad to impress coworkers"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Molly says that she gets lots of attention in everyday life and won't try online dating because she doesn't need to.",
+    "moral_action_concepts": [
+      "get lots of attention in everyday life"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3U4J9857OF9O5N4PSCZM6NA9MR37BT1",
+    "situation": "Amanda invites Emily over after midnight.",
+    "intention": "Amanda wants to have fun.",
+    "immoral_action": "Amanda and Emily decide to watch a horror movie at a high volume.",
+    "norm": "Neighbors are expected not to disturb each other.",
+    "anti_norm": "It is special for people to disturb each other.",
+    "fake_norms": [
+      "It's right to have fun",
+      "You shouldn't invite over after midnight",
+      "It's right to watch a horror movie at a high volume"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Amanda and Emily decide to put together a puzzle while drinking coffee.",
+    "moral_action_concepts": [
+      "drink coffee",
+      "put together a puzzle"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3O6CYIULEEZIR1EW0BOT3T1E5GGUWN1",
+    "situation": "Abigail has noticed her neighbors have been fighting a lot more lately, and is worried that there might be domestic abuse happening.",
+    "intention": "Abigail wants to make sure her neighbors are safe from harm.",
+    "immoral_action": "Abigail sets up a telescope at the window to watch for violence between her neighbors.",
+    "norm": "Neighbors are expected not to spy on one another.",
+    "anti_norm": "It's good for friends to spy on each other.",
+    "fake_norms": [
+      "It's rude to be safe from harm",
+      "It's rude to notice neighbors",
+      "It's bad to set up a telescope at the window",
+      "It's wrong to be worried",
+      "It's wrong to watch for violence between neighbors",
+      "You shouldn't be happening"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Abigail approaches on her neighbors and expresses her concern directly and offers to help.",
+    "moral_action_concepts": [
+      "approach on neighbors",
+      "express concern"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3CP1TO84PUZFU6QALQRE7AT94T625D1",
+    "situation": "John's father Theobold is dying and asks John to come visit him.",
+    "intention": "John wants his father to know how much he hurt him when he was younger.",
+    "immoral_action": "John visits his dad and tells him how angry he is at him and how he'll never forget all the wrongs he did to him.",
+    "norm": "You should show your parents grace.",
+    "anti_norm": "It's wrong to show your parents grace.",
+    "fake_norms": [
+      "It's good to visit him",
+      "You shouldn't do to him",
+      "It's rude to be younger",
+      "It's good to hurt him",
+      "It's bad to be angry at him",
+      "It's bad to tell him",
+      "It's right to forget the wrongs",
+      "You shouldn't visit dad"
+    ],
+    "discarded_norms": [],
+    "moral_action": "John comforts his father, tells him briefly that he forgives his father for any wrongs that occurred and says he loves him.",
+    "moral_action_concepts": [
+      "forgive father for any wrongs",
+      "love him",
+      "comfort father",
+      "tell him"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3HYA4D452SH7W3JZR24NTMKMTYI2FG1",
+    "situation": "Mindy comes home from work crying and wants to talk to her husband John about what happened.",
+    "intention": "John wants to watch the ballgame.",
+    "immoral_action": "John pretends he doesn't see Mindy and puts the volume up on the tv.",
+    "norm": "It's expected that family should openly communicate.",
+    "anti_norm": "It's wrong for family to openly communicate.",
+    "fake_norms": [
+      "It's right to talk to husband",
+      "It's right to put up the volume on the tv",
+      "You shouldn't watch the ballgame"
+    ],
+    "discarded_norms": [],
+    "moral_action": "John puts the game on record and comforts Mindy and talks with her.",
+    "moral_action_concepts": [
+      "talk with her",
+      "put the game on record"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3Z3ZLGNNSJST8A5R9ITMOVTS5LOQ3J1",
+    "situation": "Lisa lives with her parents, finished high school, and got a full time job in town.",
+    "intention": "Lisa wants to decide where to live.",
+    "immoral_action": "Lisa decides to continue living with her parents.",
+    "norm": "It's expected that you'll move away from your parents.",
+    "anti_norm": "You shouldn't move away from your parents.",
+    "fake_norms": [
+      "It's bad to get a time job in town",
+      "You shouldn't live with parents",
+      "It's good to finish high school"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Lisa decides to move into an apartment in town.",
+    "moral_action_concepts": [
+      "move into an apartment in town"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3P529IW9KZJDXP5718MS8IJVXLJLF61",
+    "situation": "Rebecca is hosting her birthday party with her friends invited but yesterday she got reprimanded by her boss for poor job performance.",
+    "intention": "Rebecca wants to vent her frustration.",
+    "immoral_action": "Rebecca maintains a bad mood during the party.",
+    "norm": "You shouldn't make a party unhappy for your guests.",
+    "anti_norm": "It's nice to make a party unhappy for your guests.",
+    "fake_norms": [
+      "It's right to vent frustration",
+      "It's right to host birthday party",
+      "It's good to maintain a bad mood during the party"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Rebecca cancels the birthday party and just invites her best friend to her home to celebrate her birthday.",
+    "moral_action_concepts": [
+      "cancel the birthday party",
+      "celebrate birthday",
+      "invite best friend to home"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3EA3QWIZ4JTLQTF2BPU4X66491MTIL1",
+    "situation": "Lisa has plans to meet up with coworkers for drinks when her friend calls in tears and asks to meet with her.",
+    "intention": "Lisa wants to respond to her friends request.",
+    "immoral_action": "Lisa really wants to schmooze with her coworkers, so she puts her friend off.",
+    "norm": "You should make your friends a priority.",
+    "anti_norm": "It's bad to make your friends a priority.",
+    "fake_norms": [
+      "It's rude to call in tears",
+      "It's wrong to put off friend",
+      "It's wrong to meet up with coworkers for drinks",
+      "It's rude to have plans",
+      "You shouldn't schmooze with coworkers",
+      "You should meet with her"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Lisa cancels her plans and meets up with her friend.",
+    "moral_action_concepts": [
+      "meet up with friend",
+      "cancel plans"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "382M9COHEIDOA1S5FBUNHNUE0C2EUK1",
+    "situation": "Keith is walking across the street when he sees a man get hit by a car.",
+    "intention": "Keith wants to show his feelings about the situation.",
+    "immoral_action": "Keith starts to laugh as the rest of the crowd rushes to try to save the man's life.",
+    "norm": "You shouldn't laugh when people die.",
+    "anti_norm": "It was kind to laugh when people die.",
+    "fake_norms": [
+      "You should walk across the street",
+      "It's bad to save life",
+      "It's right to show feelings about the situation"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Keith starts to cry as he tries to process what he has just seen happen.",
+    "moral_action_concepts": [
+      "see what"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3E4GGUZ1T9PICPBDSDVK9ZCRZPNK2C1",
+    "situation": "Tom really wants a car that is quite expensive because it's a luxury vehicle.",
+    "intention": "Tom wants to enjoy the hard earned fruits of labor.",
+    "immoral_action": "Tom buys a new car that is way out of his budget.",
+    "norm": "You should not spend more than you make.",
+    "anti_norm": "It's good not to spend more than you make.",
+    "fake_norms": [
+      "It's right to buy a new car",
+      "It's right to enjoy the earned fruits of labor",
+      "It's bad to be expensive",
+      "It's rude to want a car",
+      "It's wrong to be a luxury vehicle"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Tom finds a certified used model of the car he wanted and purchases that.",
+    "moral_action_concepts": [
+      "purchase that",
+      "find a certified used model of the car"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "34BBWHLWHB9DIAJW6UZFKQD3BW8IW41",
+    "situation": "Roger's rent is due, but he really wants to buy a new pair of boots.",
+    "intention": "Roger wants to make a decision.",
+    "immoral_action": "Roger decides to buy the new boots and worry later.",
+    "norm": "You shouldn't buy more than your budget can take.",
+    "anti_norm": "It's kind to buy more than your budget can take.",
+    "fake_norms": [
+      "It's good to buy a new pair of boots",
+      "You should make a decision",
+      "It's bad to buy the new boots",
+      "It's rude to be due"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Roger puts off purchasing the boots until after his bills are paid.",
+    "moral_action_concepts": [
+      "purchase the boots"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3D3VGR7TA1DTKBKRMXIMTL3X0JZR3H1",
+    "situation": "Vince and some workers are shoveling coal in a boxcar and is very tired.",
+    "intention": "Vince wants to take a break.",
+    "immoral_action": "Vince tells the others to keep working and takes a ten minute break.",
+    "norm": "You should not expect someone to do more than you.",
+    "anti_norm": "It is expected to expect someone to do more than you.",
+    "fake_norms": [
+      "It's good to be tired",
+      "It's wrong to shovel coal in a boxcar",
+      "You shouldn't take a minute break",
+      "You should take a break",
+      "It's good to tell the others"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Vince asks everyone if they can take a break together.",
+    "moral_action_concepts": [
+      "ask everyone",
+      "take a break"
+    ],
+    "norm_concepts": []
+  },
+  {
+    "id": "3TS1AR6UQRCEI4G5XELIPD1U48U7FF1",
+    "situation": "Fernando is a hungry student at school and is in the cafeteria to eat lunch.",
+    "intention": "Fernando wants to get food.",
+    "immoral_action": "Fernando takes an extra plate of food in case he doesn't get enough, then fills up before he can eat it all.",
+    "norm": "People shouldn't take more than they need.",
+    "anti_norm": "It is good to not take more than they need.",
+    "fake_norms": [
+      "It's good to be a hungry student at school",
+      "It's rude to eat it",
+      "It's bad to get food",
+      "It's right to eat lunch",
+      "It's bad to be in the cafeteria",
+      "It's bad to get enough",
+      "You shouldn't take an extra plate of food in case"
+    ],
+    "discarded_norms": [],
+    "moral_action": "Fernando gets one plate and returns for seconds according to his hunger level.",
+    "moral_action_concepts": [
+      "get plate for seconds",
+      "accord to hunger level"
+    ],
+    "norm_concepts": []
+  }
+]

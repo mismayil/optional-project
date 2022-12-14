@@ -8,6 +8,12 @@ import itertools
 import json
 from itertools import product
 
+SITUATION_TOKEN = "<|SIT|>"
+INTENTION_TOKEN = "<|INT|>"
+MORAL_ACTION_TOKEN = "<|M_ACT|>"
+IMMORAL_ACTION_TOKEN = "<|I_ACT|>"
+NORM_TOKEN = "<|NRM|>"
+
 nlp = spacy.load("en_core_web_sm")
 
 doc_cache = {}
@@ -150,8 +156,8 @@ class GlucoseDataset(Dataset):
             "labels": target_ids.to(dtype=torch.long),
         }
 
-def get_noun_phrases(token):
-    if token.pos_ == "NOUN":
+def get_noun_phrases_from_token(token, longest_only=True):
+    if token.pos_ == "NOUN" or token.pos_ == "PRON":
         if hasattr(token, "children"):
             det = None
             amods = []
@@ -184,29 +190,47 @@ def get_noun_phrases(token):
             child_phrases = []
 
             for prep in preps:
-                prep_phrases = get_prep_phrases(prep)
+                prep_phrases = get_prep_phrases_from_token(prep)
                 if prep_phrases:
                     child_phrases.extend(prep_phrases)
             
+            if longest_only:
+                return [f"{phrase} {' '.join(child_phrases)}".strip()]
+
             return [phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
         return [token.text]
 
     return []
 
-def get_prep_phrases(token):
+def get_prep_phrases_from_token(token, longest_only=True):
     if hasattr(token, "children"):
         for child in token.children:
             if child.dep_ == "pobj":
-                return [f"{token.text} {ph}" for ph in get_noun_phrases(child)]
+                return [f"{token.text} {ph}" for ph in get_noun_phrases_from_token(child, longest_only=longest_only)]
 
     return []
 
-def get_verb_phrases(token):
-    if token.pos_ == "VERB":
+def get_acomp_phrases_from_token(token, longest_only=True):
+    if hasattr(token, "children"):
+        for child in token.children:
+            if child.dep_ == "prep":
+                phrases = [f"{token.text} {ph}" for ph in get_prep_phrases_from_token(child, longest_only=longest_only)]
+
+                if not phrases:
+                    return [token.text]
+                
+                return phrases
+
+    return [token.text]
+
+def get_verb_phrases_from_token(token, longest_only=True):
+    if token.pos_ == "VERB" or token.pos_ == "AUX":
         if hasattr(token, "children"):
             dobj = None
             prts = []
             preps = []
+            attrs = []
+            acomps = []
 
             for child in token.children:
                 if child.dep_ == "dobj":
@@ -215,6 +239,10 @@ def get_verb_phrases(token):
                     prts.append(child)
                 elif child.dep_ == "prep":
                     preps.append(child)
+                elif child.dep_ == "attr":
+                    attrs.append(child)
+                elif child.dep_ == "acomp":
+                    acomps.append(child)
             
             phrases = []
             verb = f"{token.lemma_}"
@@ -225,13 +253,34 @@ def get_verb_phrases(token):
             dobj_phrases = []
 
             if dobj:
-                dobj_phrases = get_noun_phrases(dobj)
+                dobj_phrases = get_noun_phrases_from_token(dobj, longest_only=longest_only)
             
             prep_phrases = []
 
             for prep in preps:
-                prep_phrases.extend(get_prep_phrases(prep))
+                prep_phrases.extend(get_prep_phrases_from_token(prep, longest_only=longest_only))
             
+            attr_phrases = []
+
+            for attr in attrs:
+                attr_phrases.extend(get_noun_phrases_from_token(attr))
+
+            acomp_phrases = []
+
+            for acomp in acomps:
+                acomp_phrases.extend(get_acomp_phrases_from_token(acomp))
+    
+            if longest_only:
+                final_phrase = ""
+
+                for ph in dobj_phrases+attr_phrases+acomp_phrases+prep_phrases:
+                    final_phrase += f" {ph}"
+
+                if final_phrase:
+                    return [f"{verb}{final_phrase}"]
+                
+                return []
+
             for ph in dobj_phrases:
                 phrases.append(f"{verb} {ph}")
             
@@ -253,3 +302,17 @@ def get_verb_phrases(token):
 
             return list(set(phrases))
     return []
+
+def get_phrases(text, phrase_type="vp"):
+    doc = nlp(text)
+    phrases = set()
+
+    for token in doc:
+        if phrase_type == "np":
+            phrases.update(get_noun_phrases_from_token(token))
+        elif phrase_type == "vp":
+            phrases.update(get_verb_phrases_from_token(token))
+        else:
+            raise ValueError(f"Wrong phrase type: {phrase_type}")
+
+    return list(phrases)

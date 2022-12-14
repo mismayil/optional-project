@@ -2,13 +2,7 @@ import argparse
 from tqdm import tqdm
 import pathlib
 
-from utils import read_jsonl, write_json
-
-SITUATION_TOKEN = "<|SIT|>"
-INTENTION_TOKEN = "<|INT|>"
-MORAL_ACTION_TOKEN = "<|M_ACT|>"
-IMMORAL_ACTION_TOKEN = "<|I_ACT|>"
-NORM_TOKEN = "<|NRM|>"
+from utils import read_jsonl, write_json, SITUATION_TOKEN, INTENTION_TOKEN, MORAL_ACTION_TOKEN, IMMORAL_ACTION_TOKEN, NORM_TOKEN
 
 def main():
     parser = argparse.ArgumentParser()

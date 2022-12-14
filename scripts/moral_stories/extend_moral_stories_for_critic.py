@@ -21,7 +21,7 @@ def main():
         critic_sample["fake_norms"].append(actor_sample["prediction"])
 
     critic_datapath = pathlib.Path(args.critic_datapath)
-    write_json(critic_data, f"{critic_datapath.parent}/{critic_datapath.stem}_with_fake_preds.json")
+    write_json(critic_data, f"{critic_datapath.parent}/{critic_datapath.stem}_extended.json")
 
 if __name__ == "__main__":
     main()
