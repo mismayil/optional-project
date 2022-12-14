@@ -26,7 +26,6 @@ def main():
         anti_norm = sample["anti_norm"]
         context = f"{SITUATION_TOKEN} {situation} {INTENTION_TOKEN} {intention} {MORAL_ACTION_TOKEN} {moral_action} {IMMORAL_ACTION_TOKEN} {immoral_action} {NORM_TOKEN}"
         norm_concepts = sample["norm_concepts"]
-        moral_action_concepts = sample["moral_action_concepts"]
 
         critic_data.append({
             "id": sample["id"],
@@ -42,10 +41,10 @@ def main():
             "gold_norm": norm
         })
 
-        all_concepts = set(list(map(str.lower, norm_concepts+moral_action_concepts)))
+        all_concepts = set(list(map(str.lower, norm_concepts)))
 
         for fake_norm in sample["fake_norms"]:
-            fake_norm_concepts = get_phrases(fake_norm)
+            fake_norm_concepts = get_phrases(fake_norm, "vp") + get_phrases(fake_norm, "np")
             
             critic_data.append({
                 "id": sample["id"],

@@ -4,8 +4,8 @@ ${CONDA} run -n op --no-capture-output \
     python t5_experiments/scripts/train_predict.py \
     --training-file data/moral_stories/norm-actions+context+consequences/norm_distance/critic_train_prep_vp_extended_with_norm_np_final.json \
     --validation-file data/moral_stories/norm-actions+context+consequences/norm_distance/critic_dev_prep_vp_extended_with_norm_np_final.json \
-    --language-model allenai/unifiedqa-t5-base \
-    --model-dir /scratch/mete/op/op_critic_moral_stories_norm_only_base \
+    --language-model allenai/unifiedqa-t5-large \
+    --model-dir /scratch/mete/op/op_critic_moral_stories_norm_only_large \
     --epochs 10 \
     --batch-size 16 \
     --val-batch-size 16 \
@@ -13,5 +13,5 @@ ${CONDA} run -n op --no-capture-output \
     --output-label critic_output \
     --max-input-length 256 \
     --max-output-length 60 \
-    --wandb-run-name critic_moral_stories_norm_only_base \
-    --save-results /scratch/mete/op/critic_moral_stories_norm_only_base_outputs
+    --wandb-run-name critic_moral_stories_norm_only_large \
+    --save-results /scratch/mete/op/critic_moral_stories_norm_only_large_outputs

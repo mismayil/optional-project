@@ -194,11 +194,14 @@ def get_noun_phrases_from_token(token, longest_only=True):
                 if prep_phrases:
                     child_phrases.extend(prep_phrases)
             
-            if longest_only:
-                return [f"{phrase} {' '.join(child_phrases)}".strip()]
+            if token.pos_ == "NOUN" or len(child_phrases) > 0:
+                if longest_only:
+                    return [f"{phrase} {' '.join(child_phrases)}".strip()]
 
-            return [phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
-        return [token.text]
+                return [phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
+        
+        if token.pos_ == "NOUN":
+            return [token.text]
 
     return []
 
