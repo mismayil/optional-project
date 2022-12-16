@@ -6,7 +6,7 @@ ${CONDA} run -n op --no-capture-output \
     --validation-file data/moral_stories/norm-actions+context+consequences/norm_distance/critic_dev_prep_final.json \
     --language-model allenai/unifiedqa-t5-base \
     --model-dir /scratch/mete/op/op_critic_moral_stories_cat \
-    --epochs 10 \
+    --epochs 5 \
     --batch-size 32 \
     --val-batch-size 32 \
     --input-label critic_input \
