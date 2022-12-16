@@ -7,6 +7,8 @@ import re
 import itertools
 import json
 from itertools import product
+from dataclasses import dataclass
+from nltk.corpus import wordnet
 
 SITUATION_TOKEN = "<|SIT|>"
 INTENTION_TOKEN = "<|INT|>"
@@ -156,7 +158,22 @@ class GlucoseDataset(Dataset):
             "labels": target_ids.to(dtype=torch.long),
         }
 
-def get_noun_phrases_from_token(token, longest_only=True):
+@dataclass(kw_only=True)
+class PhraseConfig:
+    longest_only: bool = True
+    include_dobj: bool = True
+    include_prt: bool = True
+    include_prep: bool = True
+    include_attr: bool = True
+    include_acomp: bool = True
+    include_det: bool = True
+    include_amod: bool = True
+    include_compound: bool = True
+
+def _enabled(phrase_config, attr):
+    return not phrase_config or getattr(phrase_config, attr)
+
+def get_noun_phrases_from_token(token, phrase_config=None):
     if token.pos_ == "NOUN" or token.pos_ == "PRON":
         if hasattr(token, "children"):
             det = None
@@ -165,13 +182,13 @@ def get_noun_phrases_from_token(token, longest_only=True):
             compounds = []
 
             for child in token.children:
-                if child.dep_ == "det":
+                if _enabled(phrase_config, "include_det") and child.dep_ == "det":
                     det = child
-                elif child.dep_ == "amod":
+                elif _enabled(phrase_config, "include_amod") and child.dep_ == "amod":
                     amods.append(child)
-                elif child.dep_ == "compound":
+                elif _enabled(phrase_config, "include_compound") and child.dep_ == "compound":
                     compounds.append(child)
-                elif child.dep_ == "prep":
+                elif _enabled(phrase_config, "include_prep") and child.dep_ == "prep":
                     preps.append(child)
             
             phrase = ""
@@ -190,34 +207,34 @@ def get_noun_phrases_from_token(token, longest_only=True):
             child_phrases = []
 
             for prep in preps:
-                prep_phrases = get_prep_phrases_from_token(prep)
+                prep_phrases = get_prep_phrases_from_token(prep, phrase_config=phrase_config)
                 if prep_phrases:
                     child_phrases.extend(prep_phrases)
             
             if token.pos_ == "NOUN" or len(child_phrases) > 0:
-                if longest_only:
+                if _enabled(phrase_config, "longest_only"):
                     return [f"{phrase} {' '.join(child_phrases)}".strip()]
 
-                return [phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
+                return [token.text, phrase] + [f"{phrase} {ch_phrase}" for ch_phrase in child_phrases]
         
         if token.pos_ == "NOUN":
             return [token.text]
 
     return []
 
-def get_prep_phrases_from_token(token, longest_only=True):
+def get_prep_phrases_from_token(token, phrase_config=None):
     if hasattr(token, "children"):
         for child in token.children:
             if child.dep_ == "pobj":
-                return [f"{token.text} {ph}" for ph in get_noun_phrases_from_token(child, longest_only=longest_only)]
+                return [f"{token.text} {ph}" for ph in get_noun_phrases_from_token(child, phrase_config=phrase_config)]
 
     return []
 
-def get_acomp_phrases_from_token(token, longest_only=True):
+def get_acomp_phrases_from_token(token, phrase_config=None):
     if hasattr(token, "children"):
         for child in token.children:
             if child.dep_ == "prep":
-                phrases = [f"{token.text} {ph}" for ph in get_prep_phrases_from_token(child, longest_only=longest_only)]
+                phrases = [f"{token.text} {ph}" for ph in get_prep_phrases_from_token(child, phrase_config=phrase_config)]
 
                 if not phrases:
                     return [token.text]
@@ -226,7 +243,7 @@ def get_acomp_phrases_from_token(token, longest_only=True):
 
     return [token.text]
 
-def get_verb_phrases_from_token(token, longest_only=True):
+def get_verb_phrases_from_token(token, phrase_config=None):
     if token.pos_ == "VERB" or token.pos_ == "AUX":
         if hasattr(token, "children"):
             dobj = None
@@ -236,15 +253,15 @@ def get_verb_phrases_from_token(token, longest_only=True):
             acomps = []
 
             for child in token.children:
-                if child.dep_ == "dobj":
+                if _enabled(phrase_config, "include_dobj") and child.dep_ == "dobj":
                     dobj = child
-                elif child.dep_ == "prt":
+                elif _enabled(phrase_config, "include_prt") and child.dep_ == "prt":
                     prts.append(child)
-                elif child.dep_ == "prep":
+                elif _enabled(phrase_config, "include_prep") and child.dep_ == "prep":
                     preps.append(child)
-                elif child.dep_ == "attr":
+                elif _enabled(phrase_config, "include_attr") and child.dep_ == "attr":
                     attrs.append(child)
-                elif child.dep_ == "acomp":
+                elif _enabled(phrase_config, "include_acomp") and child.dep_ == "acomp":
                     acomps.append(child)
             
             phrases = []
@@ -256,24 +273,24 @@ def get_verb_phrases_from_token(token, longest_only=True):
             dobj_phrases = []
 
             if dobj:
-                dobj_phrases = get_noun_phrases_from_token(dobj, longest_only=longest_only)
+                dobj_phrases = get_noun_phrases_from_token(dobj, phrase_config=phrase_config)
             
             prep_phrases = []
 
             for prep in preps:
-                prep_phrases.extend(get_prep_phrases_from_token(prep, longest_only=longest_only))
+                prep_phrases.extend(get_prep_phrases_from_token(prep, phrase_config=phrase_config))
             
             attr_phrases = []
 
             for attr in attrs:
-                attr_phrases.extend(get_noun_phrases_from_token(attr))
+                attr_phrases.extend(get_noun_phrases_from_token(attr, phrase_config=phrase_config))
 
             acomp_phrases = []
 
             for acomp in acomps:
-                acomp_phrases.extend(get_acomp_phrases_from_token(acomp))
+                acomp_phrases.extend(get_acomp_phrases_from_token(acomp, phrase_config=phrase_config))
     
-            if longest_only:
+            if _enabled(phrase_config, "longest_only"):
                 final_phrase = ""
 
                 for ph in dobj_phrases+attr_phrases+acomp_phrases+prep_phrases:
@@ -306,16 +323,62 @@ def get_verb_phrases_from_token(token, longest_only=True):
             return list(set(phrases))
     return []
 
-def get_phrases(text, phrase_type="vp"):
+def get_phrases(text, phrase_type="vp", phrase_config=None):
     doc = nlp(text)
     phrases = set()
 
     for token in doc:
         if phrase_type == "np":
-            phrases.update(get_noun_phrases_from_token(token))
+            phrases.update(get_noun_phrases_from_token(token, phrase_config=phrase_config))
         elif phrase_type == "vp":
-            phrases.update(get_verb_phrases_from_token(token))
+            phrases.update(get_verb_phrases_from_token(token, phrase_config=phrase_config))
         else:
             raise ValueError(f"Wrong phrase type: {phrase_type}")
 
     return list(phrases)
+
+WN_POS_MAP = {
+    "adj": wordnet.ADJ,
+    "noun": wordnet.NOUN,
+    "verb": wordnet.VERB
+}
+
+def get_synonyms_antonyms(word, top=2, pos="adj"):
+    word = word.lower()
+    synonyms = []
+    antonyms = []
+
+    for syn in wordnet.synsets(word, pos=WN_POS_MAP[pos]):
+        for lem in syn.lemmas():
+            synonyms.append(lem.name())
+            for ant in lem.antonyms():
+                antonyms.append(ant.name())
+    
+    top_syns = []
+    top_ants = []
+
+    for syn in synonyms:
+        if len(top_syns) == top:
+            break
+
+        if syn.lower().strip() != word:
+            top_syns.append(syn)
+
+    for ant in antonyms:
+        if len(top_ants) == top:
+            break
+
+        if ant.lower().strip() != word:
+            top_ants.append(ant)
+
+    return top_syns, top_ants
+
+def get_adjectives(text):
+    doc = nlp(text)
+    adjectives = set()
+
+    for token in doc:
+        if token.pos_ == "ADJ":
+            adjectives.add(token.text.lower())
+    
+    return list(adjectives)

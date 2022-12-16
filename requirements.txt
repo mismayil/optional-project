@@ -6,3 +6,4 @@ wandb
 transformers
 sentencepiece
 sacrebleu
+nltk
