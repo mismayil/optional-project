@@ -31,7 +31,7 @@ RUN ${CONDA} init bash
 RUN git config --global user.name "Mete Ismayil"
 RUN git config --global user.email "mismayilza@gmail.com"
 RUN echo "export LANG=en_US.UTF-8" >> ~/.bashrc
-RUN ${CONDA} create --name op -y python=3.10
+RUN ${CONDA} create --name op -y python=3.9
 RUN ${CONDA} install -n op ipykernel --update-deps --force-reinstall
 
 ARG GITHUB_PERSONAL_TOKEN

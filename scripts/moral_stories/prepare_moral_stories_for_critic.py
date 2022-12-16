@@ -50,23 +50,33 @@ def main():
         norm_concepts = list(map(str.lower, sample["norm_concepts"]))
         context_concepts = sample["context_concepts"]
         norm_action = sample["norm_action"] if sample["norm_action"] else gold_norm
+        norm_sentiment = sample["norm_sentiment"]
         fake_norms = sample["fake_norms"]
         fake_norm_concepts = sample["fake_norm_concepts"]
+        fake_norm_sentiments = sample["fake_norm_sentiments"]
         norm_grounded = (len(set(norm_concepts).intersection(set(context_concepts))) > 0)
 
-        for fake_norm, fn_concepts in zip(fake_norms, fake_norm_concepts):
+        for fake_norm, fn_concepts, fn_sentiment in zip(fake_norms, fake_norm_concepts, fake_norm_sentiments):
             fake_norm_grounded = (len(set(fn_concepts).intersection(set(context_concepts))) > 0)
-            hint = f"{UNRELATED_HINT_4} {norm_action.strip()}"
+            action_hint = norm_action.strip()
+            
+            if norm_sentiment * fn_sentiment < 0:
+                if action_hint.lower().startswith("not"):
+                    action_hint = action_hint[3:].strip()
+                else:
+                    action_hint = f"not {action_hint}"
+
+            hint = f"{UNRELATED_HINT_4} {action_hint}"
 
             if norm_grounded and not fake_norm_grounded:
-                feedback = ",".join(set(norm_concepts)-set(list(map(str.lower, fn_concepts))))
-                hint = f"{UNRELATED_HINT_1} {feedback}"
+                concept_hint = ",".join(set(norm_concepts)-set(list(map(str.lower, fn_concepts))))
+                hint = f"{UNRELATED_HINT_1} {concept_hint}"
             
             if not norm_grounded and fake_norm_grounded:
-                hint = f"{UNRELATED_HINT_2} {norm_action.strip()}"
+                hint = f"{UNRELATED_HINT_2} {action_hint}"
             
             if norm_grounded and fake_norm_grounded:
-                hint = f"{UNRELATED_HINT_3} {norm_action.strip()}"
+                hint = f"{UNRELATED_HINT_3} {action_hint}"
 
             critic_data.append({
                 "id": sample["id"],

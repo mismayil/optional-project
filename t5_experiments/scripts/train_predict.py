@@ -26,7 +26,8 @@ def training(training_file, dev_file,
              wandb_project="optional-project",
              wandb_run_name=None,
              tokenizer=None,
-             special_tokens=None):
+             special_tokens=None,
+             use_exact_match=False):
 
     if not os.path.exists(trained_models_dir):
         os.mkdir(trained_models_dir)
@@ -37,7 +38,8 @@ def training(training_file, dev_file,
             cache_dir=os.path.join(DATA_FOLDER, 'pretrained'),
             pretrained_model_name_or_path=language_model,
             tokenizer_name_or_path=tokenizer,
-            special_tokens=special_tokens
+            special_tokens=special_tokens,
+            use_exact_match=use_exact_match
     )
     classifier.train(training_file, dev_file,
                     per_gpu_train_batch_size=per_gpu_train_batch_size,
@@ -131,6 +133,7 @@ def parse_args():
     parser.add_argument("--max-input-length", type=int, default=256, help="Maximum sequence length for input.")
     parser.add_argument("--max-output-length", type=int, default=60, help="Maximum sequence length for output.")
     parser.add_argument("--special-tokens", type=str, nargs="*", default=[], help="Additional special tokens to add to tokenizer.")
+    parser.add_argument("--use-exact-match", action="store_true", default=False, help="Whether to use exact matching for performance comparison.")
 
     args = parser.parse_args()
     return args
@@ -156,7 +159,8 @@ def main():
                  output_label=args.output_label,
                  wandb_project=args.wandb_project,
                  wandb_run_name=args.wandb_run_name,
-                 special_tokens=args.special_tokens)
+                 special_tokens=args.special_tokens,
+                 use_exact_match=args.use_exact_match)
     if args.validation_file:
         evaluation_results = evaluate(test_file=args.validation_file,
                                     trained_models_dir=args.model_dir,

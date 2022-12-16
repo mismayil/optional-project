@@ -39,7 +39,8 @@ class T5LMClassifier:
                  local_rank=-1,
                  fp16=False,
                  fp16_opt_level='01',
-                 special_tokens=None
+                 special_tokens=None,
+                 use_exact_match=False
                  ):
         self.max_input_length = max_input_length
         self.max_output_length = max_output_length
@@ -96,6 +97,7 @@ class T5LMClassifier:
             additional_tokens += special_tokens
         
         self.tokenizer.add_special_tokens({"additional_special_tokens": additional_tokens})
+        self.use_exact_match = use_exact_match
 
     def train(self, training_file,
               dev_file,
@@ -227,6 +229,7 @@ class T5LMClassifier:
 
         tr_loss, logging_loss = 0.0, 0.0
         val_bleu = 0
+        val_exact = 0
 
         model.zero_grad()
         train_iterator = trange(
@@ -283,16 +286,20 @@ class T5LMClassifier:
                             bleu, exact = calculate_bleu_from_lists(gold_texts=val_labels,
                                                            predicted_texts=preds)
                             wandb.log({"val_bleu": bleu})
+                            wandb.log({"val_exact": exact})
+
                             print(exact, bleu)
-                            if bleu > val_bleu:
+
+                            if (self.use_exact_match and exact > val_exact) or (not self.use_exact_match and bleu > val_bleu):
                                 model_to_save = (
                                     model.module if hasattr(model, "module") else model
                                 )  # Take care of distributed/parallel training
                                 model_to_save.save_pretrained(self.output_model_dir)
-                                print('bleu on dev set improved:', bleu, ' saving model to disk.')
+                                print('bleu or exact score on dev set improved:', bleu, exact, ' saving model to disk.')
                                 val_bleu = bleu
+                                val_exact = exact
                             else:
-                                print('bleu on dev set did not improve:', bleu)
+                                print('bleu or exact score on dev set did not improve:', bleu, exact)
 
         self.tokenizer.save_pretrained(self.output_model_dir)
 

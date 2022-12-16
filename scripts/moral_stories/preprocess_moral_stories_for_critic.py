@@ -8,19 +8,10 @@ import string
 
 from utils import read_jsonl, read_json, write_json, get_phrases, PhraseConfig, get_adjectives, get_synonyms_antonyms
 
-NORM_PREFIXES = [
-    "It's good to",
-    "It's bad to",
-    "It's wrong to",
-    "It's right to",
-    "It's rude to",
-    "You should",
-    "You shouldn't",
-    "It's important to"
-]
-
 GOOD_NORM_PREFIXES = [
     ["it is good to", "it's good to"],
+    ["it is right to", "it's right to"],
+    ["it is usual to", "it's usual to"],
     ["it is proper to", "it's proper to"],
     ["you should", "you must"],
     ["it is important to", "it's important to"]
@@ -28,6 +19,7 @@ GOOD_NORM_PREFIXES = [
 
 BAD_NORM_PREFIXES = [
     ["it is bad to", "it's bad to"],
+    ["it is unusual to", "it's unusual to"],
     ["you shouldn't", "you should not", "you mustn't", "you must not"],
     ["it is wrong to", "it's wrong to"],
     ["it is rude to", "it's rude to"]
@@ -66,12 +58,30 @@ def _split_by_prefix(text):
 
     return None, None, None
 
+def _choose_random_prefix(prefixes):
+    p_index = random.choice(list(range(len(prefixes))))
+    return prefixes[p_index][random.choice(list(range(len(prefixes[p_index]))))]
+
+def _estimate_sentiment(text):
+    for prefix_options in BAD_NORM_PREFIXES:
+        for prefix in prefix_options:
+            if text.startswith(prefix):
+                return -1
+
+    for prefix_options in GOOD_NORM_PREFIXES:
+        for prefix in prefix_options:
+            if text.startswith(prefix):
+                return 1
+    
+    return 0
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--datapath", type=str, help="Path to moral stories dataset")
     parser.add_argument("--anti-ms-datapath", type=str, help="Path to contrastive moral stories dataset")
     parser.add_argument("--anti-ms-splits-datapath", type=str, help="Path to contrastive moral stories dataset with norm splits")
     parser.add_argument("--actor-datapath", type=str, help="Path to actor output dataset")
+    parser.add_argument("--suffix", type=str, default="", help="File suffix")
 
     args = parser.parse_args()
 
@@ -103,6 +113,7 @@ def main():
         anti_norm =  anti_ms_sample["norm"] if anti_ms_sample else None
         norm_judgment = anti_ms_splits_sample["rot-judgment"] if anti_ms_splits_sample else None
         norm_action = anti_ms_splits_sample["rot-action"] if anti_ms_splits_sample else None
+        norm_sentiment = anti_ms_splits_sample["action-moral-judgment"] if anti_ms_splits_sample else 0
         context = f"{situation} {intention} {moral_action} {immoral_action}"
         phrase_config = PhraseConfig(longest_only=False, include_det=False, include_prt=False)
         context_phrases = get_phrases(context, "vp", phrase_config=phrase_config)
@@ -114,17 +125,22 @@ def main():
 
         fake_norms = []
         fake_norm_phrases = []
+        fake_norm_sentiments = []
 
         long_context_phrases = get_phrases(context, "vp")
 
         for phrase in long_context_phrases:
-            fake_norm = f"{random.choice(NORM_PREFIXES)} {phrase}"
+            judgment_choice = random.choice(["good", "bad"])
+            norm_prefixes = GOOD_NORM_PREFIXES if judgment_choice == "good" else BAD_NORM_PREFIXES
+            fake_norm = f"{_choose_random_prefix(norm_prefixes)} {phrase}"
             fake_norms.append(fake_norm)
             fake_norm_phrases.append(list(get_phrases(phrase, "vp", phrase_config=phrase_config)))
+            fake_norm_sentiments.append(1 if judgment_choice == "good" else -1)
         
         if actor_sample:
             fake_norms.append(actor_sample["prediction"])
             fake_norm_phrases.append(list(get_phrases(actor_sample["prediction"], "vp", phrase_config=phrase_config)))
+            fake_norm_sentiments.append(_estimate_sentiment(actor_sample["prediction"]))
 
         other_norms = []
         other_anti_norms = []
@@ -179,12 +195,14 @@ def main():
             "moral_action": moral_action,
             "immoral_action": immoral_action,
             "norm": norm,
+            "norm_sentiment": norm_sentiment,
             "anti_norm": anti_norm,
             "norm_judgment": norm_judgment,
             "norm_action": norm_action,
             "other_norms": other_norms,
             "other_anti_norms": other_anti_norms,
             "fake_norms": fake_norms,
+            "fake_norm_sentiments": fake_norm_sentiments,
             "norm_concepts": list(norm_phrases),
             "fake_norm_concepts": fake_norm_phrases,
             "context_concepts": list(context_phrases)
@@ -198,7 +216,7 @@ def main():
     elif "test" in datapath.stem:
         dataset_type = "test"
 
-    write_json(critic_data, f"{datapath.parent}/critic_{dataset_type}_prep.json")
+    write_json(critic_data, f"{datapath.parent}/critic_{dataset_type}_prep{args.suffix}.json")
 
 if __name__ == "__main__":
     main()
