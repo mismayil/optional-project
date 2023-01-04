@@ -1,4 +1,3 @@
-from typing import List
 import spacy
 import torch
 from torch.utils.data import Dataset
@@ -20,6 +19,32 @@ nlp = spacy.load("en_core_web_sm")
 
 doc_cache = {}
 sent_cache = {}
+
+GOOD_NORM_PREFIXES = [
+    ["it is good to", "it's good to"],
+    ["it is right to", "it's right to"],
+    ["it is usual to", "it's usual to"],
+    ["it is proper to", "it's proper to"],
+    ["you should", "you must"],
+    ["it is important to", "it's important to"]
+]
+
+BAD_NORM_PREFIXES = [
+    ["it is bad to", "it's bad to"],
+    ["it is unusual to", "it's unusual to"],
+    ["you shouldn't", "you should not", "you mustn't", "you must not"],
+    ["it is wrong to", "it's wrong to"],
+    ["it is rude to", "it's rude to"]
+]
+
+SYN_ANT_MAP = {
+    "good": (["right", "proper"], ["bad", "wrong"]),
+    "more": (["a lot of"], ["less"]),
+    "bad": (["wrong", "improper"], ["good", "proper"]),
+    "important": (["crucial", "necessary"], ["unimportant", "unnecessary"]),
+    "polite": (["kind", "nice"], ["impolite", "rude"]),
+    "mean": (["evil", "rude"], ("kind", "nice"))
+}
 
 def read_json(filepath):
     with open(filepath) as f:
@@ -59,10 +84,11 @@ def get_sents(text, by_sentence=None, use_cache=True):
 
     return sent_cache[text]
 
-with open("outputs/placeholders.txt") as f:
-    placeholders = f.read().splitlines()
+def get_placeholders():
+    with open("outputs/placeholders.txt") as f:
+        return f.read().splitlines()
 
-def get_words(text: str, ignore_stopwords: bool = False, ignore_entities: bool = False):
+def get_words(text: str, ignore_stopwords: bool = False, ignore_entities: bool = False, placeholders=None):
     doc = get_doc(text.strip())
     tokens = [token for token in doc if token.text not in placeholders and not token.is_punct and len(token.text.strip()) > 0]
     

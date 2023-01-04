@@ -6,33 +6,10 @@ import random
 from itertools import product
 import string
 
-from utils import read_jsonl, read_json, write_json, get_phrases, PhraseConfig, get_adjectives, get_synonyms_antonyms
-
-GOOD_NORM_PREFIXES = [
-    ["it is good to", "it's good to"],
-    ["it is right to", "it's right to"],
-    ["it is usual to", "it's usual to"],
-    ["it is proper to", "it's proper to"],
-    ["you should", "you must"],
-    ["it is important to", "it's important to"]
-]
-
-BAD_NORM_PREFIXES = [
-    ["it is bad to", "it's bad to"],
-    ["it is unusual to", "it's unusual to"],
-    ["you shouldn't", "you should not", "you mustn't", "you must not"],
-    ["it is wrong to", "it's wrong to"],
-    ["it is rude to", "it's rude to"]
-]
-
-SYN_ANT_MAP = {
-    "good": (["right", "proper"], ["bad", "wrong"]),
-    "more": (["a lot of"], ["less"]),
-    "bad": (["wrong", "improper"], ["good", "proper"]),
-    "important": (["crucial", "necessary"], ["unimportant", "unnecessary"]),
-    "polite": (["kind", "nice"], ["impolite", "rude"]),
-    "mean": (["evil", "rude"], ("kind", "nice"))
-}
+from utils import (
+    read_jsonl, read_json, write_json, get_phrases, PhraseConfig, get_adjectives, get_synonyms_antonyms,
+    GOOD_NORM_PREFIXES, BAD_NORM_PREFIXES, SYN_ANT_MAP
+)
 
 def _replace_word(words, word_pair):
     new_words = words.copy()

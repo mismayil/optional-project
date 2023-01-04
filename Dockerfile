@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.5.1-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:11.5.1-cudnn8-runtime-ubuntu20.04@sha256:a6831f0d6328ea7301fa196ae2a376d2e67caae384af4ffd93fb196b527c0a0f
 
 ENV HOME=/root
 ENV CONDA_PREFIX=${HOME}/.conda

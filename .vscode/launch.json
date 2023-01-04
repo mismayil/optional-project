@@ -8,11 +8,12 @@
             "name": "prepare_moral_stories_for_critic.py",
             "type": "python",
             "request": "launch",
-            "program": "prepare_moral_stories_for_critic_with_negatives.py",
+            "program": "scripts/moral_stories/prepare_moral_stories_for_critic.py",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["--datapath", "data/moral_stories/norm-actions+context+consequences/norm_distance/sample.jsonl", "--neg-datapath", "data/contrastive_moral_stories/anti-ms/sample.jsonl"]
+            "env": {"PYTHONPATH": "${workspaceFolder}"},
+            "args": ["--datapath", "data/moral_stories/norm-actions+context+consequences/norm_distance/critic_dev_prep_aligned.json", "--suffix", "_balanced"]
         },
         {
             "name": "overlap.py",
