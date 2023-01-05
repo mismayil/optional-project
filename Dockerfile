@@ -31,8 +31,8 @@ RUN ${CONDA} init bash
 RUN git config --global user.name "Mete Ismayil"
 RUN git config --global user.email "mismayilza@gmail.com"
 RUN echo "export LANG=en_US.UTF-8" >> ~/.bashrc
-RUN ${CONDA} create --name op -y python=3.9
-RUN ${CONDA} install -n op ipykernel --update-deps --force-reinstall
+RUN ${CONDA} create --name op -y python=3.10
+RUN ${CONDA} install -n op ipykernel --force-reinstall
 
 ARG GITHUB_PERSONAL_TOKEN
 
@@ -46,6 +46,7 @@ ARG ENV_TAINT=0
 # Setup project dependencies
 RUN ${CONDA} run -n op pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu116
 RUN ${CONDA} run -n op python -m spacy download en_core_web_sm
+RUN ${CONDA} run -n op python -c "import nltk; nltk.download('wordnet')"
 
 ARG VERSION_TAINT=0
 
