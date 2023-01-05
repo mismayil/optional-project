@@ -63,7 +63,8 @@ def evaluate(test_file, trained_models_dir,
              output_label="model_output",
              tokenizer=None,
              save_results=None,
-             special_tokens=None):
+             special_tokens=None,
+             prediction_label="prediction"):
     _classifier = T5LMClassifier(max_input_length=max_input_length,
                                  max_output_length=max_output_length,
                                  output_model_dir=trained_models_dir,
@@ -91,7 +92,7 @@ def evaluate(test_file, trained_models_dir,
             test_data = json.load(f)
         
         for i, pred in enumerate(preds):
-            test_data[i]["prediction"] = pred
+            test_data[i][prediction_label] = pred
         
         test_path = pathlib.Path(test_file)
         with open(f"{save_results}/{test_path.stem}_results.json", "w") as f:
@@ -134,6 +135,7 @@ def parse_args():
     parser.add_argument("--max-output-length", type=int, default=60, help="Maximum sequence length for output.")
     parser.add_argument("--special-tokens", type=str, nargs="*", default=[], help="Additional special tokens to add to tokenizer.")
     parser.add_argument("--use-exact-match", action="store_true", default=False, help="Whether to use exact matching for performance comparison.")
+    parser.add_argument('--prediction-label', type=str, default="prediction", help="Prediction label name.")
 
     args = parser.parse_args()
     return args
@@ -172,7 +174,8 @@ def main():
                                     input_label=args.input_label,
                                     output_label=args.output_label,
                                     save_results=args.save_results,
-                                    special_tokens=args.special_tokens
+                                    special_tokens=args.special_tokens,
+                                    prediction_label=args.prediction_label
                                 )
 if __name__ == '__main__':
     main()
