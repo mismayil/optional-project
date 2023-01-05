@@ -68,9 +68,9 @@ def main():
         critic_data.append({
             "id": sample["id"],
             "actor_input": context,
-            "actor_output": fake_norm.lower(),
+            "actor_prediction": fake_norm.lower(),
             "critic_feedback": hint.lower(),
-            "gold_norm": gold_norm
+            "actor_reference": gold_norm
         })
 
     datapath = pathlib.Path(args.datapath)
