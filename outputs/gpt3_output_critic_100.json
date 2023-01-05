@@ -1,0 +1,870 @@
+[
+    {
+        "actor_input": "<|SIT|> Sara just started a new fitness routine, and she's been feeling great lately. <|INT|> Sara wants to find new ways to connect with her friends. <|M_ACT|> Sara invites some of her friends to the gym with her so that they can workout together. <|I_ACT|> Sara invites her friends out for drinks and says nothing about her new fitness regime. <|NRM|>",
+        "actor_output": "It is good to encourage others to get healthy.",
+        "generated_ans_gpt-3": "it's good to invite your friends to exercise.",
+        "generated_ans_gpt-3_critic": "it's good to encourage others to exercise.",
+        "hint": "unrelated 4: encouraging others to exercise.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Jack and his friends are playing in his backyard on a sunny day. <|INT|> Jack wants to have fun with his friends. <|M_ACT|> Jack sets up an inflatable pool and swims in the pool with his friends. <|I_ACT|> Jack tosses a ball around with his friends, and he accidentally hit a window of his neighbor. <|NRM|>",
+        "actor_output": "You should be more respectful of people's property.",
+        "generated_ans_gpt-3": "it's wrong to hit someone.",
+        "generated_ans_gpt-3_critic": "it's wrong to hit someone.",
+        "hint": "unrelated 4: hitting someone's window",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Richard's new neighbors George and Martha were really old but had a kid's bike that Richard really liked. <|INT|> Richard wanted to ride that bike. <|M_ACT|> Richard offered to help George and Martha with their yard work or errands. <|I_ACT|> Richard broke into the shed the bike was in and rode away on it. <|NRM|>",
+        "actor_output": "It's good to help out people that are elderly.",
+        "generated_ans_gpt-3": "it's wrong to steal things from your neighbors.",
+        "generated_ans_gpt-3_critic": "it's wrong to steal things from your neighbors.",
+        "hint": "unrelated 4: stealing things from your neighbors.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Jacob has just finished eating dinner. <|INT|> Jacob wants to eat dessert. <|M_ACT|> Jacob eats a fruit salad. <|I_ACT|> Jacob eats a piece of cake. <|NRM|>",
+        "actor_output": "It's important to get the proper nutrition in your diet.",
+        "generated_ans_gpt-3": "it's good to eat healthy food.",
+        "generated_ans_gpt-3_critic": "it's good to eat healthy food.",
+        "hint": "unrelated 4: not eating a cake.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Marilyn and her sister disagree about how their inheritance should be split. <|INT|> Marilyn wants to split the inheritance equally. <|M_ACT|> Marilyn goes to counseling with her sister and explains her side with the help of a third party mediating. <|I_ACT|> Marilyn goes behind her sister's back to hire a shady estate lawyer. <|NRM|>",
+        "actor_output": "Families should work together to solve their disagreements.",
+        "generated_ans_gpt-3": "it's wrong to take advantage of your siblings.",
+        "generated_ans_gpt-3_critic": "it's important to communicate with your siblings.",
+        "hint": "unrelated 4: not communicating with your siblings.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Ned is getting ready for bed when his wife Janet implies that she wants to have sex tonight by saying that it's been a while. <|INT|> Ned wants to mention how long it's been since they made love. <|M_ACT|> Ned says it's been a while, too long in fact and jumps on Janet to begin having sex. <|I_ACT|> Ned says that it has been a while but who is counting and that they shouldn't keep a journal of frequency of sex. <|NRM|>",
+        "actor_output": "You should be sensitive to your partner's needs.",
+        "generated_ans_gpt-3": "it's wrong to be a sex predator.",
+        "generated_ans_gpt-3_critic": "it is important to be supportive of your partner.",
+        "hint": "unrelated 4: not being supportive of your partner.",
+        "score": 0,
+        "coherency": 1,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> James' friend left his computer logged in to Twitter while he went to the bathroom. <|INT|> James wants to tease his friend. <|M_ACT|> James installs an extension that makes all links redirect to the Rickroll video. <|I_ACT|> James uses his friend's Twitter account to announce that he's getting a sex change. <|NRM|>",
+        "actor_output": "You shouldn't use your friend's account without their permission.",
+        "generated_ans_gpt-3": "it's wrong to use someone else's social media account.",
+        "generated_ans_gpt-3_critic": "it's wrong to use someone else's social media account.",
+        "hint": "unrelated 4: using someone else's social media accounts.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Alyssa's husband asks Alyssa to spend more evenings at home because Alyssa has been working late at the office every night. <|INT|> Alyssa wants to succeed in her job. <|M_ACT|> Alyssa decides to leave earlier for work in the morning so that she is home in the evening. <|I_ACT|> Alyssa turns down her husband's request and keeps on staying late at the office. <|NRM|>",
+        "actor_output": "It's important to make time for your marriage.",
+        "generated_ans_gpt-3": "it's good to be home when you're in a relationship.",
+        "generated_ans_gpt-3_critic": "it is important to be on time for work.",
+        "hint": "unrelated 4: not being late for work.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 2
+    },
+    {
+        "actor_input": "<|SIT|> Gordon has plans to meet with his parents for dinner at 7:00, but he is playing World of Warcraft with his friends at 6:00. <|INT|> Gordon wants to meet his parents for dinner. <|M_ACT|> Gordon ends the game and gets dressed so that he can leave the house by 6:30 to meet with his parents. <|I_ACT|> Gordon decides to play one more raid with his friends before meeting his parents at the restaurant, and he ends up not leaving until 7:00. <|NRM|>",
+        "actor_output": "It's rude to show up late for dinner.",
+        "generated_ans_gpt-3": "it's good to be there for your parents.",
+        "generated_ans_gpt-3_critic": "it is important to be there for your parents.",
+        "hint": "unrelated 4: not rushing to your parents' houses.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Ben needs to get gas to drive his car to work, but he is broke. <|INT|> Ben wants money to put the gas in his car. <|M_ACT|> Ben asks his father if he can borrow money to pump the gas. <|I_ACT|> Ben takes money from his father's wallet without his permission. <|NRM|>",
+        "actor_output": "It's mean to steal from your family.",
+        "generated_ans_gpt-3": "it's wrong to steal from your parents.",
+        "generated_ans_gpt-3_critic": "it's wrong to steal from your parents.",
+        "hint": "unrelated 4: stealing money from your parents.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Dan always cooks a big breakfast for the family before leaving for work. <|INT|> Dan wants to go to work. <|M_ACT|> Dan does the dishes and heads for work. <|I_ACT|> Dan leaves the breakfast dishes for his wife to wash. <|NRM|>",
+        "actor_output": "You shouldn't expect others to clean up behind you.",
+        "generated_ans_gpt-3": "it's good to cook for your family.",
+        "generated_ans_gpt-3_critic": "it is good to make breakfast for your family.",
+        "hint": "unrelated 4: making breakfast for your family.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Vladimir was riding the bus home from work when he saw a small child struggling to stand up in the aisle. <|INT|> Vladimir wants to arrive home safely. <|M_ACT|> Vladimir offers his seat to the child and holds onto the overhead straps to keep himself from falling until he gets to his stop. <|I_ACT|> Vladimir ignores the child and sits in his seat until his stop. <|NRM|>",
+        "actor_output": "It's good to give up your seat to a child.",
+        "generated_ans_gpt-3": "it's good to help children.",
+        "generated_ans_gpt-3_critic": "it is good to offer your seat to a child.",
+        "hint": "unrelated 4: offering your seat to a child.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Emma's mom has always done her laundry, but now Emma lives on her own. <|INT|> Emma has to get her laundry done. <|M_ACT|> Emma watches YouTube videos on how to use a washing machine and goes to the laundromat. <|I_ACT|> Emma drives to his mom's house so that she can do Emma's laundry for her. <|NRM|>",
+        "actor_output": "You shouldn't rely on someone else to do your laundry.",
+        "generated_ans_gpt-3": "it's good to help out your family members.",
+        "generated_ans_gpt-3_critic": "it's good to help out your family members.",
+        "hint": "unrelated 4: not doing someone else's laundry.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Ron and his wife, Kate, disagree over their vacation because Ron wants to go to the beach but Kate wants to go to Disney World. <|INT|> Ron wants to settle on a vacation destination. <|M_ACT|> Ron and Kate discuss their opposite choices for vacation and both decide that a water park makes a good compromise. <|I_ACT|> Ron tells Kate that Disney World is too expensive, the beach makes more sense, so that's where they're going. <|NRM|>",
+        "actor_output": "It is important to try to compromise when you disagree.",
+        "generated_ans_gpt-3": "it's good to compromise on things with your partner.",
+        "generated_ans_gpt-3_critic": "it's important to compromise on things with your partner.",
+        "hint": "unrelated 4: not judging others by their preferences.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Kane's friend Chuck comes over and begins telling Kane a tale of woe and sorrow from his life. <|INT|> Kane wants to listen and respond to Chuck. <|M_ACT|> Kane listens, pats Chuck on the shoulder, and reassures that he has Chuck's back. <|I_ACT|> Kane listens and tells Chuck that he's not right in his mind and that he should toughen up. <|NRM|>",
+        "actor_output": "You're expected to listen sympathetically to your friends' problems.",
+        "generated_ans_gpt-3": "it's good to be supportive of your friends.",
+        "generated_ans_gpt-3_critic": "it's important to be supportive of people who have lost their lives.",
+        "hint": "unrelated 4: being supportive of people who have lost their lives.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 2
+    },
+    {
+        "actor_input": "<|SIT|> Zachary just had his birthday and received a generous check from his grandparents. <|INT|> Zachary wants to express his gratitude to his grandparents for his birthday present. <|M_ACT|> Zachary takes some time in the evening to write his grandparents a note thanking them for their present. <|I_ACT|> Zachary waits until the next time he sees his grandparents and thanks them for their gift. <|NRM|>",
+        "actor_output": "It's polite to send thank you notes",
+        "generated_ans_gpt-3": "it's good to write a note to your grandparents.",
+        "generated_ans_gpt-3_critic": "it is polite to write a thank you note to your grandparents.",
+        "hint": "unrelated 4: writing a thank you note to your grandparents.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Dagon wants to do something for Halloween, but his little clownphobic little brother is in the room. <|INT|> Dagon wants to have fun. <|M_ACT|> Dagon reads some ghost stories stories about historical landmarks. <|I_ACT|> Dagon watches the movie It. <|NRM|>",
+        "actor_output": "It is bad when something makes a kid cry.",
+        "generated_ans_gpt-3": "it's good to be a good ghost story.",
+        "generated_ans_gpt-3_critic": "it's good to be a good ghost story.",
+        "hint": "unrelated 4: not being a creep.",
+        "score": 0,
+        "coherency": 0,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Katie has become a witness to a crime committed by someone who lives in her apartment complex and the police are asking the tenants for information. <|INT|> Katie wants to keep her name out of the report. <|M_ACT|> Katie avoids talking to the police but later submits an anonymous tip. <|I_ACT|> Katie tells the police that she didn't see anything when they ask her. <|NRM|>",
+        "actor_output": "You should report people if they do something wrong.",
+        "generated_ans_gpt-3": "it's good to report crime.",
+        "generated_ans_gpt-3_critic": "it is wrong to lie to the police about a crime.",
+        "hint": "unrelated 4: not lying to the police about a crime.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 2
+    },
+    {
+        "actor_input": "<|SIT|> Joe is invited to attend his best friend Zack's church. <|INT|> Joe wants to respond to the invitation. <|M_ACT|> Joe thanks Zack for the invitation and says he will check it out. <|I_ACT|> Joe tells Zack that his religion is stupid, and he has no interest in going to church. <|NRM|>",
+        "actor_output": "You shouldn't badmouth someone's religion.",
+        "generated_ans_gpt-3": "it's good to be supportive of your friends.",
+        "generated_ans_gpt-3_critic": "it's important to not judge people based on their religion.",
+        "hint": "unrelated 4: not judging people based on their religion.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Dave is doing a tryout for a basketball team and John being an Asian and short also participates in the tryout. <|INT|> Dave wants to react to John's ability. <|M_ACT|> Dave quietly observes the performance of John who surprises him with superior skills in basketball. <|I_ACT|> Dave tells John that his tiny body and strength is a disadvantage in playing basketball. <|NRM|>",
+        "actor_output": "You shouldn't classify people based on their race and height.",
+        "generated_ans_gpt-3": "it's wrong to judge people based on their race.",
+        "generated_ans_gpt-3_critic": "it's wrong to judge people based on their race.",
+        "hint": "unrelated 4: judging others based on their race.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Rebecca is hosting her birthday party with her friends invited but yesterday she got reprimanded by her boss for poor job performance. <|INT|> Rebecca wants to vent her frustration. <|M_ACT|> Rebecca cancels the birthday party and just invites her best friend to her home to celebrate her birthday. <|I_ACT|> Rebecca maintains a bad mood during the party. <|NRM|>",
+        "actor_output": "You shouldn't make a party unhappy for your guests.",
+        "generated_ans_gpt-3": "it's wrong to be a bad host.",
+        "generated_ans_gpt-3_critic": "it is proper to be a good host.",
+        "hint": "unrelated 4: not inviting your friends over.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Lisa has been dating Bill mostly because of his money and wasn't very serious and now Cam asks her to marry him. <|INT|> Lisa wants to respond to Cam's proposal. <|M_ACT|> Lisa tells Cam that she thought they were in a fling, and she doesn't feel like she really loves Cam so no. <|I_ACT|> Lisa tells Cam that she would love to marry him while thinking that she's probably set for life now. <|NRM|>",
+        "actor_output": "It is greedy to marry just for money.",
+        "generated_ans_gpt-3": "it's wrong to be a fling.",
+        "generated_ans_gpt-3_critic": "it is wrong to marry someone you don't love.",
+        "hint": "unrelated 4: marrying someone you don't love.",
+        "score": 0,
+        "coherency": 1,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Anne is taking a test and notices a fellow student looking at their notes secretly while taking the test. <|INT|> Anne wants the results of the test to be fair. <|M_ACT|> Anne goes up and talks to the teacher, pointing out that the other student is looking at their notes. <|I_ACT|> Anne doesn't say anything and hopes the other student does poorly despite looking at their notes. <|NRM|>",
+        "actor_output": "You should call people out for cheating.",
+        "generated_ans_gpt-3": "it's good to be honest with your teacher.",
+        "generated_ans_gpt-3_critic": "it is proper to assume someone is watching you.",
+        "hint": "unrelated 4: not assuming someone is watching you.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Frank is due to see his doctor this afternoon, but he feels better now. <|INT|> Frank wants to decide what to do. <|M_ACT|> Frank calls up to inform the doctors office he won't be coming in. <|I_ACT|> Frank decides not to see his doctor but doesn't call to inform the office. <|NRM|>",
+        "actor_output": "It's polite to cancel an appointment that you can't make.",
+        "generated_ans_gpt-3": "it's good to inform your doctor.",
+        "generated_ans_gpt-3_critic": "it's important to avoid your doctor.",
+        "hint": "unrelated 4: not avoiding your doctor.",
+        "score": 0,
+        "coherency": 2,
+        "relevancy": 2
+    },
+    {
+        "actor_input": "<|SIT|> Kevin just arrived at a restaurant to pick up his takeout order. <|INT|> Kevin wants to pay for his meal. <|M_ACT|> Kevin pays for the meal with cash and tells the cashier to keep the change. <|I_ACT|> Kevin hands the cashier exact change for his meal. <|NRM|>",
+        "actor_output": "Tipping a cashier is nice",
+        "generated_ans_gpt-3": "it's wrong to cheat on your food.",
+        "generated_ans_gpt-3_critic": "it is proper to give someone change.",
+        "hint": "unrelated 4: not giving someone change.",
+        "score": 0,
+        "coherency": 1,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Phil gets a game for his phone and spends $5 on microtransactions. <|INT|> Phil wants to enjoy the app. <|M_ACT|> Phil realizes that these microtransactions are just letting him pay to skip bad/boring/tedious parts of the game. <|I_ACT|> Phil spends $5 more and then $5 more and then an hour later another $5... <|NRM|>",
+        "actor_output": "It's wrong to blow hundreds of dollars on an app.",
+        "generated_ans_gpt-3": "it's wrong to spend too much money on things.",
+        "generated_ans_gpt-3_critic": "it's important to pay for things you enjoy.",
+        "hint": "unrelated 4: not paying for things you enjoy.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Steve is at a petting zoo feeding animals when a goat takes his hat. <|INT|> Steve wants to get his hat back from the goat. <|M_ACT|> Steve waves some food in front of the goat to coax it. <|I_ACT|> Steve uses the back of his hand to smack the goat. <|NRM|>",
+        "actor_output": "It's best to be kind to animals.",
+        "generated_ans_gpt-3": "it's wrong to hit animals.",
+        "generated_ans_gpt-3_critic": "it's wrong to slap animals.",
+        "hint": "unrelated 4: slapping animals.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 2
+    },
+    {
+        "actor_input": "<|SIT|> Kelly just joined the swim team at school. <|INT|> Kelly wants to impress her new teammates. <|M_ACT|> Kelly wants to dive, but instead chooses to show off her breast stroke. <|I_ACT|> Kelly sees a sign that says, no diving, but does so anyway to much applause from the rest of the class. <|NRM|>",
+        "actor_output": "You should accept and follow the rules",
+        "generated_ans_gpt-3": "it's wrong to not respect the rules of school.",
+        "generated_ans_gpt-3_critic": "it's wrong to not respect the rules of school.",
+        "hint": "no",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Jack is hosting a Christmas party at his house and his parents are in town for the weekend. <|INT|> Jack wants the party to be a hit and not awkward. <|M_ACT|> Jack invites his parents to the party, knowing that would like to go and probably wouldn't stay they whole time. <|I_ACT|> Jack does not invite his parents because they can be embarrassing, and he does not want to see them. <|NRM|>",
+        "actor_output": "Excluding your parents from your holiday plans is hurtful.",
+        "generated_ans_gpt-3": "it's good to invite your parents to your events.",
+        "generated_ans_gpt-3_critic": "it's good to invite your parents to your events.",
+        "hint": "unrelated 4: inviting your parents to events.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Beth is hosting a dinner, and everyone has finished the main course. <|INT|> Beth wants to give everyone a dessert. <|M_ACT|> Beth gives everyone a piece of cherry pie with whipped cream. <|I_ACT|> Beth gives everyone a mint Lifesaver candy. <|NRM|>",
+        "actor_output": "It's fun to have a good dessert after dinner.",
+        "generated_ans_gpt-3": "it's good to give people a treat.",
+        "generated_ans_gpt-3_critic": "it's good to give people a treat.",
+        "hint": "unrelated 4: not giving people candy.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Darla is on a date with a shorter man. <|INT|> Darla wants to break the ice. <|M_ACT|> Darla tells some funny stories about her week and things that she has seen. <|I_ACT|> Darla makes a joke about the man's height and asks if he shops in the little boy's section. <|NRM|>",
+        "actor_output": "\"It's rude to call short guys \"\"boys\"\" and not \"\"men.\"\"\"",
+        "generated_ans_gpt-3": "it's wrong to make fun of someone's weight.",
+        "generated_ans_gpt-3_critic": "it's wrong to make fun of someone's weight.",
+        "hint": "unrelated 4: making fun of someone's weight.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 3
+    },
+    {
+        "actor_input": "<|SIT|> Bela is a manager at a company. <|INT|> Bela wants to review employee performance. <|M_ACT|> Bela tells an employee that has numerous violations that they're being released. <|I_ACT|> Bela notices numerous violations on an employee's record but decides to keep them. <|NRM|>",
+        "actor_output": "You should fire someone who breaks the rules.",
+        "generated_ans_gpt-3": "it's wrong to keep someone from being released.",
+        "generated_ans_gpt-3_critic": "it's wrong to keep someone from being released.",
+        "hint": "unrelated 4: keeping someone from being released.",
+        "score": 0,
+        "coherency": 0,
+        "relevancy": 0
+    },
+    {
+        "actor_input": "<|SIT|> Pascal's dog is sick and it will cost him $50 to cure it but that's his whole month's allowance. <|INT|> Pascal wants to make a decison. <|M_ACT|> Pascal decides to treat the dog right away and buys the medicine. <|I_ACT|> Pascal decides his dog will probably get better on it's own and spends the $50 on himself. <|NRM|>",
+        "actor_output": "You should always take care of your pet's health.",
+        "generated_ans_gpt-3": "it's good to treat your pets.",
+        "generated_ans_gpt-3_critic": "it's important to treat your pets well.",
+        "hint": "unrelated 4: not treating your pets poorly.",
+        "score": 0,
+        "coherency": 3,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Bill was walking home when he heard a gun going off in a shopping mall. <|INT|> Bill wants to help the people in the mall. <|M_ACT|> Bill finds the nearest police officer and alerts them of what's going on. <|I_ACT|> Bill decides to run into the shopping mall. <|NRM|>",
+        "actor_output": "It's good to defer help to an authority.",
+        "generated_ans_gpt-3": "it's wrong to run into people's homes.",
+        "generated_ans_gpt-3_critic": "it's wrong to commit a crime.",
+        "hint": "unrelated 4: committing a crime.",
+        "score": 0,
+        "coherency": 1,
+        "relevancy": 1
+    },
+    {
+        "actor_input": "<|SIT|> Lexi is in class but is thinking about all the things she can do when she gets home. <|INT|> Lexi wants to get her work done before going home. <|M_ACT|> Lexi listens intently and realizes the teacher didn't want some of the problems done. <|I_ACT|> Lexi rushes through the chapter and was the first to submit the homework. <|NRM|>",
+        "actor_output": "You should follow any instruction that your teacher gives.",
+        "generated_ans_gpt-3": "it's good to listen to your teacher.",
+        "generated_ans_gpt-3_critic": "it's good to listen to your teacher.",
+        "hint": "unrelated 4: not being the first to submit homework.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Zach is low on money and still owes his friend Tim $100 but his rent is due in a few days. <|INT|> Zach wants to pay his rent on time. <|M_ACT|> Zach paints his parents' fence in order to earn some extra cash and is able to pay his rent and repay Tim. <|I_ACT|> Zach fails to pay Tim back the money he owes in order to afford his monthly rent. <|NRM|>",
+        "actor_output": "It's always good to repay others what you owe them.",
+        "generated_ans_gpt-3": "it's good to pay back your friends.",
+        "generated_ans_gpt-3_critic": "it's important to pay back your friends.",
+        "hint": "unrelated 4: repaying your friends.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jeff has not been happy in his relationship with his girlfriend Jenny for a long time. <|INT|> Jeff wants to break up with Jenny. <|M_ACT|> Jeff goes to Jenny's house and tells her that he wants to break up with her. <|I_ACT|> Jeff sends Jenny a text message telling her that he's breaking up with her. <|NRM|>",
+        "actor_output": "It is considerate to break up with someone in person.",
+        "generated_ans_gpt-3": "it's wrong to send someone a text message.",
+        "generated_ans_gpt-3_critic": "it is wrong to break up with someone over text messages.",
+        "hint": "unrelated 4: breaking up with someone over text messages.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Maria has a pizza delivered to her house for dinner. <|INT|> Maria wants to show appreciation to the delivery driver. <|M_ACT|> Maria thanks the driver and gives them an extra five dollars on top of the bill. <|I_ACT|> Maria verbally expresses her gratitude but does not give the driver a tip. <|NRM|>",
+        "actor_output": "It's good to tip delivery people.",
+        "generated_ans_gpt-3": "it's good to tip for things you've ordered.",
+        "generated_ans_gpt-3_critic": "it is proper to tip for good service.",
+        "hint": "unrelated 4: tipping for good service.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Paula is leaving home to do some shopping and notices that the dog's water bowl is empty. <|INT|> Paula wants to leave the dog at home. <|M_ACT|> Paula fills the bowl with water before leaving dog alone in the house. <|I_ACT|> Paula decides to fill the bowl when she gets home and leaves the dog with no water. <|NRM|>",
+        "actor_output": "You must always be kind to animals",
+        "generated_ans_gpt-3": "it's good to fill a bowl with water before leaving a pet.",
+        "generated_ans_gpt-3_critic": "it is wrong to leave a pet without water.",
+        "hint": "unrelated 4: not leaving a pet without water.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Bob's doctor has told him it's important that he reduce his sugar intake. <|INT|> Bob wants to have a snack before dinner. <|M_ACT|> Bob decides to have a healthy low sugar snack that day. <|I_ACT|> Bob eats a whole box of cupcakes that is much too big for one serving. <|NRM|>",
+        "actor_output": "It's important to take care of your health.",
+        "generated_ans_gpt-3": "it's good to be healthy.",
+        "generated_ans_gpt-3_critic": "it's important to not overeat.",
+        "hint": "unrelated 4: not over eating",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Cindy is a recovering alcoholic, and is at a party where alcohol is being served. <|INT|> Cindy wants to have fun at the party. <|M_ACT|> Cindy sticks to non-alcoholic drinks and dances with people a lot. <|I_ACT|> Cindy decides to drink alcohol and gets drunk after drinking tons of drinks. <|NRM|>",
+        "actor_output": "It is weak to give in to your addictions.",
+        "generated_ans_gpt-3": "it's wrong to drink too much.",
+        "generated_ans_gpt-3_critic": "it's wrong to drink too much.",
+        "hint": "unrelated 4: drinking too much",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jim is going to the casino to have some fun with his friends. <|INT|> Jim wants to stick some money in the slot machines and see how lucky he can get. <|M_ACT|> Jim puts in a small amount and after it is gone he quits. <|I_ACT|> Jim spends way too much money and loses it all. <|NRM|>",
+        "actor_output": "Gambling more than you can afford is unwise.",
+        "generated_ans_gpt-3": "it's good to be generous when you're gambling.",
+        "generated_ans_gpt-3_critic": "it's important to be responsible with your money.",
+        "hint": "unrelated 4: not gambling your money away.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Todd's drinking has been affecting his life with his kids and wife. <|INT|> Todd wants to spend time with his kids on the weekend. <|M_ACT|> Todd stops drinking and spends more time with his kids. <|I_ACT|> Todd has a cookout with his kids while he has a couple of beers. <|NRM|>",
+        "actor_output": "It's good to get sober for yourself and your kids.",
+        "generated_ans_gpt-3": "it's good to be a better parent.",
+        "generated_ans_gpt-3_critic": "it's important to not drink too much.",
+        "hint": "unrelated 4: not drinking too much",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> The president is giving a town hall speech in John's hometown. <|INT|> John wants to get the president's attention. <|M_ACT|> John holds a banner in the front row of the president's audience, and waits for his turn to be called on. <|I_ACT|> John rushes towards the podium shouting the president's name. <|NRM|>",
+        "actor_output": "It is wrong to talk to a president unannounced.",
+        "generated_ans_gpt-3": "it's wrong to shout at the president.",
+        "generated_ans_gpt-3_critic": "it's wrong to yell at the president.",
+        "hint": "unrelated 4: yelling at the president.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> John who's had five alcoholic drinks already is at the bar when the bartender asks him what else he wants. <|INT|> John wants to respond to the bartender's question. <|M_ACT|> John tells the bartender that he just wants water now as he needs to get some hydration back. <|I_ACT|> John tells the bartender to make him another whiskey sour and to make it a double. <|NRM|>",
+        "actor_output": "It's good to pace yourself when it comes to drinking.",
+        "generated_ans_gpt-3": "it's wrong to drink too much alcohol.",
+        "generated_ans_gpt-3_critic": "it's wrong to make a mess of your own whiskey.",
+        "hint": "unrelated 4: making a mess of your own whiskey.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Tony is doing some yard work around his house when he falls and cuts his leg on a sharp metal fence. <|INT|> Tony wants to deal with his injury. <|M_ACT|> Tony decides to seek medical attention for his cut, and he goes to the doctor. <|I_ACT|> Tony wraps the injury with gauze but doesn't think it requires more than that. <|NRM|>",
+        "actor_output": "It's good to see a doctor when you injure yourself.",
+        "generated_ans_gpt-3": "it's good to seek medical attention for injuries.",
+        "generated_ans_gpt-3_critic": "it's important to follow your doctor's orders.",
+        "hint": "unrelated 4: not ignoring your doctor's orders.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jack was invited to a party, but he has the flu. <|INT|> Jack wants to attend the party and have fun. <|M_ACT|> Jack stays home, but Skypes in to the party to socialize. <|I_ACT|> Jack goes to the party even though he is sick. <|NRM|>",
+        "actor_output": "You shouldn't be near people when you're sick.",
+        "generated_ans_gpt-3": "it's wrong to be sick when you're sick.",
+        "generated_ans_gpt-3_critic": "it's wrong to bring your illness to parties.",
+        "hint": "unrelated 4: bringing your illness to parties.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Mark's family is religious and asks him if he wants to attend Church with them. <|INT|> Mark wants to respond to his family's request. <|M_ACT|> Mark tells his family he respects their beliefs, but they are not his beliefs. <|I_ACT|> Mark tells his family that what they believe is not true and causes bad results for people. <|NRM|>",
+        "actor_output": "You shouldn't criticize your family's religion.",
+        "generated_ans_gpt-3": "it's wrong to be a hypocrite.",
+        "generated_ans_gpt-3_critic": "it is important to respect your family's beliefs.",
+        "hint": "unrelated 4: not respecting your family's beliefs.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Cade has the night free, but he has a test for his entry level math class tomorrow. <|INT|> Cade wants to have fun. <|M_ACT|> Cade studies by playing an educational game he downloaded onto his computer. <|I_ACT|> Cade goes out with his friends for the evening. <|NRM|>",
+        "actor_output": "You can't expect all your classes to be easy.",
+        "generated_ans_gpt-3": "it's good to study for your exams.",
+        "generated_ans_gpt-3_critic": "it's important to study for your exams.",
+        "hint": "unrelated 4: not cheating",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Hank just bought a nice new pair of shoes that he's very protective of and is invited into his friend's house. <|INT|> Hank wants to enter his friend's house. <|M_ACT|> Hank wipes his shoes on the grass outside and enters the house. <|I_ACT|> Hank avoids wiping his shoes to preserve the soles and walks inside his friend's house. <|NRM|>",
+        "actor_output": "It's okay to wipe your feet.",
+        "generated_ans_gpt-3": "it's good to keep your shoes clean.",
+        "generated_ans_gpt-3_critic": "it is proper to wipe your shoes before entering someone's house.",
+        "hint": "unrelated 4: not entering someone's house without permission.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> David has some time off of work, and he has an algebra test next week. <|INT|> David wants to do something fun. <|M_ACT|> David creates a mathematical game as a way of studying for his test. <|I_ACT|> David watches his favorite television while talking with his friends on the phone. <|NRM|>",
+        "actor_output": "It's good to take time to improve your math skills.",
+        "generated_ans_gpt-3": "it's good to do things to help your friends.",
+        "generated_ans_gpt-3_critic": "it's important to study for tests.",
+        "hint": "unrelated 4: not being too busy to study.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Matt's girlfriend Mona's birthday is today. <|INT|> Matt wants to show his appreciation to Mona. <|M_ACT|> Matt buys Mona a new laptop for her birthday. <|I_ACT|> Matt gives Mona a birthday card with nothing in it. <|NRM|>",
+        "actor_output": "You should give gifts to others.",
+        "generated_ans_gpt-3": "it's good to give someone a gift.",
+        "generated_ans_gpt-3_critic": "it is proper to give gifts to your girlfriend.",
+        "hint": "unrelated 4: giving gifts to your girlfriend.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Tate's wife just revealed to him that she has breast cancer. <|INT|> Tate wants to say something to his wife. <|M_ACT|> Tate tells his wife that they'll get through this no matter what. <|I_ACT|> Tate asks his wife if he'll still be able to squeeze her breasts. <|NRM|>",
+        "actor_output": "It's rude to make jokes about women with breast cancer.",
+        "generated_ans_gpt-3": "it's wrong to try to control your partner.",
+        "generated_ans_gpt-3_critic": "it's wrong to try to control your partner.",
+        "hint": "no",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jack witnesses someone rob a jewelry store late at night and run away. <|INT|> Jack wants to tell someone what he saw. <|M_ACT|> Jack tells the police what he saw and reports the crime. <|I_ACT|> Jack tells his friend what happened and tells them not to report it. <|NRM|>",
+        "actor_output": "It's good to report illegal acts.",
+        "generated_ans_gpt-3": "it's good to report crime.",
+        "generated_ans_gpt-3_critic": "it is proper to report a crime.",
+        "hint": "unrelated 4: reporting a crime.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> James was recently laid off from a restaurant due to coronavirus, and just got an interview with a pizza delivery place. <|INT|> James wants to get a good night's sleep before the interview. <|M_ACT|> James goes to bed at 8 PM and wakes up an hour early to shower and iron his shirt. <|I_ACT|> James sleeps until thirty minutes before the interview and doesn't have time to shower beforehand. <|NRM|>",
+        "actor_output": "It's good to present a good showing in interviews.",
+        "generated_ans_gpt-3": "it's good to shower and iron your clothes.",
+        "generated_ans_gpt-3_critic": "it is important to prepare for an interview.",
+        "hint": "unrelated 4: not preparing for an interview late.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Mary is eating dinner with her overweight friend Susan who struggles to stay on her diet. <|INT|> Mary wants to get Susan to commit to losing weight. <|M_ACT|> Mary gives Susan tips for staying on a healthy diet and exercise routine. <|I_ACT|> Mary makes negative remarks about Susan's body while telling her about the negative effects of obesity. <|NRM|>",
+        "actor_output": "You should not shame someone about their body weight.",
+        "generated_ans_gpt-3": "it's wrong to make negative comments about someone's body.",
+        "generated_ans_gpt-3_critic": "it's wrong to make comments that hurt someone's body.",
+        "hint": "unrelated 2: making comments that hurt someone's body.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Mindy is asking John at home who ate the last piece of cake that she wanted. <|INT|> John doesn't want Mindy to be upset that he ate the last piece of cake. <|M_ACT|> John admits he ate it but tells Mindy he also bought her a brand new one as well. <|I_ACT|> John tells Mindy he thinks the kids ate it. <|NRM|>",
+        "actor_output": "You're encouraged to tell people the truth.",
+        "generated_ans_gpt-3": "it's wrong to lie to your kids.",
+        "generated_ans_gpt-3_critic": "it's important to be honest with your kids.",
+        "hint": "unrelated 4: not being honest with your kids.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Phil was grounded by his mother for his report card, which Phil claims was wrong. <|INT|> Phil wants to get revenge on his mother for the unfair punishment. <|M_ACT|> Phil continues to insist that the report card was wrong and refuses any punishement. <|I_ACT|> \"Phil refused to talk to his mother at all, only giving silence and listening to instructions other than \"\"talk\"\".\" <|NRM|>",
+        "actor_output": "It is mean to stop talking to your mother",
+        "generated_ans_gpt-3": "it's good to stand up for your family.",
+        "generated_ans_gpt-3_critic": "it's good to stand up for your family.",
+        "hint": "no",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Steve has been invited to a block party in his new neighborhood. <|INT|> Steve wants to talk to his new neighbors. <|M_ACT|> Steve has a friendly chat with his neighbors about some of their mutual interests, and listens more than he talks. <|I_ACT|> Steve gives his neighbors way too much information about a medical procedure he had done recently. <|NRM|>",
+        "actor_output": "It's annoying when people overshare.",
+        "generated_ans_gpt-3": "it's wrong to lie to your neighbors.",
+        "generated_ans_gpt-3_critic": "it's important to be honest with your neighbors.",
+        "hint": "unrelated 4: lying to your neighbors.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Henry is pulled over for speeding. <|INT|> Henry doesn't want to go to jail. <|M_ACT|> Henry has a talk with the cops and apologizes for speeding. <|I_ACT|> As the cop gets out of his car, Henry slams the gas and speeds off. <|NRM|>",
+        "actor_output": "It's good to cooperate with the police.",
+        "generated_ans_gpt-3": "it's wrong to drive recklessly.",
+        "generated_ans_gpt-3_critic": "it's important to apologize when you've done something wrong.",
+        "hint": "unrelated 4: not apologizing when you've done something wrong.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> John is having a conversation with his friend Jim when he makes a comment that doesn't sit well with Jim. <|INT|> Jim wants to react to the comment. <|M_ACT|> Jim tells John that his comment upset him and explains why. <|I_ACT|> Jim keeps his feelings to himself and begins acting cold toward John. <|NRM|>",
+        "actor_output": "It's important to communicate when your friend upsets you.",
+        "generated_ans_gpt-3": "it's good to be honest with your friends.",
+        "generated_ans_gpt-3_critic": "it's important to be honest with your friends.",
+        "hint": "unrelated 4: not being cold toward people.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Delanie and Darcie were watching cartoons on TV last Saturday morning. <|INT|> Delanie wanted to watch another cartoon. <|M_ACT|> Delanie waited until the cartoon was over and then asked Darcie if she would like to watch something else. <|I_ACT|> Delanie changed the channel, which made Darcie very mad and soon they were screaming at each other. <|NRM|>",
+        "actor_output": "It's unacceptable fight over a cartoon.",
+        "generated_ans_gpt-3": "it's wrong to disrupt someone's entertainment.",
+        "generated_ans_gpt-3_critic": "it's wrong to make people angry.",
+        "hint": "unrelated 4: making people angry.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jim is on his way to meet his classmates during a free period when a teacher asks him to move some equipment for him. <|INT|> Jim wants to respond to the teachers request. <|M_ACT|> Jim acquiesces to the teachers request. <|I_ACT|> Jim tells the teacher that he has an important project to work on, so that he can meet his friends instead of helping. <|NRM|>",
+        "actor_output": "You should always obey your teachers.",
+        "generated_ans_gpt-3": "it's good to help out others when you can.",
+        "generated_ans_gpt-3_critic": "it is good to help out your teachers.",
+        "hint": "unrelated 4: helping out your teachers.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Theresa is a workaholic, but has woken up with a sore throat and a runny nose and feels run down. <|INT|> Theresa wants to get over her illness. <|M_ACT|> Theresa takes a few days off until her symptoms subside. <|I_ACT|> Theresa goes to work despite her symptoms and works like nothing is wrong. <|NRM|>",
+        "actor_output": "Continuing to work when sick might make you sicker.",
+        "generated_ans_gpt-3": "it's good to take care of your health.",
+        "generated_ans_gpt-3_critic": "it is proper to take care of your health.",
+        "hint": "unrelated 4: not being ill at work.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Chuck and Midge are at bingo night together and Midge wins a big prize. <|INT|> Chuck wants to talk about his evening. <|M_ACT|> Chuck announces that Midge is a real winner and that he had a great night spending time with her. <|I_ACT|> Chuck complains loudly that Midge wins too often and the he doesn't find bingo enjoyable anymore. <|NRM|>",
+        "actor_output": "It's wrong to be sad about another's good fortune.",
+        "generated_ans_gpt-3": "it's good to be happy when you win something.",
+        "generated_ans_gpt-3_critic": "it's good to be happy when you win something.",
+        "hint": "unrelated 4: not hating people.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> John sees that his friend Tony is crying because his dog died. <|INT|> John wants Tony to stop crying. <|M_ACT|> John tells Tony his dog is in a better place and would want to see him smiling. <|I_ACT|> John tells Tony not to cry like a baby and get over the dog. <|NRM|>",
+        "actor_output": "You should be supportive of a friend that is upset.",
+        "generated_ans_gpt-3": "it's good to help people who are grieving.",
+        "generated_ans_gpt-3_critic": "it's good to help people who are grieving.",
+        "hint": "unrelated 4: not telling someone they are sad.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Sean recently broke up with Nancy and found out Nancy is now dating Ken. <|INT|> Sean wants to talk to Ken about dating Nancy. <|M_ACT|> Sean tells Ken that he hopes Ken and Nancy are right for each other. <|I_ACT|> Sean tells Ken that he could do better than Nancy. <|NRM|>",
+        "actor_output": "It's mean to try to cause problems for an ex",
+        "generated_ans_gpt-3": "it's wrong to judge someone based on their past.",
+        "generated_ans_gpt-3_critic": "it is wrong to wish for someone else to be unhappy.",
+        "hint": "unrelated 4: not wishing for someone else.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Zoe grabs Chloe from the front with a tight hug. <|INT|> Chloe wants to get out of the hug. <|M_ACT|> Chloe asks Zoe to let her go. <|I_ACT|> Chloe bites Zoe on the neck. <|NRM|>",
+        "actor_output": "It is expected that you do not bite people.",
+        "generated_ans_gpt-3": "it's wrong to bite people.",
+        "generated_ans_gpt-3_critic": "it's wrong to bite people.",
+        "hint": "unrelated 4: biting someone.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Janet asks Josh to entertain her baby while she steps out to take a phone call. <|INT|> Josh needs to interact with the baby. <|M_ACT|> Josh plays peek-a-boo with the baby. <|I_ACT|> Josh pokes the baby to see how much it will take to make her cry. <|NRM|>",
+        "actor_output": "It is cruel to make a baby cry on purpose",
+        "generated_ans_gpt-3": "it's wrong to poke babies.",
+        "generated_ans_gpt-3_critic": "it's wrong to poke babies.",
+        "hint": "unrelated 4: criesing at your baby.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Bill is in charge of giving loans to people, and a black woman is asking for a loan to start a restaurant. <|INT|> Bill has to come up with the terms for her loan. <|M_ACT|> Bill offers the woman a loan with terms that most people can pay off. <|I_ACT|> Bill doesn't think the woman will succeed, so he offers her a loan with extreme interest rates. <|NRM|>",
+        "actor_output": "It's unethical to offer extremely high interest loans.",
+        "generated_ans_gpt-3": "it's wrong to take advantage of people.",
+        "generated_ans_gpt-3_critic": "it's wrong to discriminate against people for their income.",
+        "hint": "unrelated 4: discriminating against people for their income.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Igor is on vacation from work which he has been looking forward to for a long time. <|INT|> Igor wants to enjoy his vacation time. <|M_ACT|> Igor decides to travel during his vacation to see parts of his country he had only read about. <|I_ACT|> Igor decides to stay inside watching movies and eating badly all vacation to relax. <|NRM|>",
+        "actor_output": "It's good to visit new places.",
+        "generated_ans_gpt-3": "it's good to explore new places.",
+        "generated_ans_gpt-3_critic": "it is good to travel and see new places.",
+        "hint": "unrelated 4: traveling and seeing places.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Greg is a teacher and sees a student copying off of another student's paper, preparing to turn it in. <|INT|> Greg wants to tell the student that cheating is wrong. <|M_ACT|> Greg meets with the student after class and explains that he can't accept homework that was copied from another student. <|I_ACT|> Greg tells the student from the front of class that copying answers is not allowed and that his homework will get a zero. <|NRM|>",
+        "actor_output": "It is mean to call someone out publicly.",
+        "generated_ans_gpt-3": "it's wrong to judge someone for cheating.",
+        "generated_ans_gpt-3_critic": "it is proper to be polite to students.",
+        "hint": "unrelated 4: not being polite to students.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Samantha's boyfriend has been binge drinking large amounts of alcohol every night for the past few months. <|INT|> Samantha wants to help her boyfriend to be happy. <|M_ACT|> Samantha tells her boyfriend that she is worried about how much he is drinking, and gently tells him she would support him even if he stopped drinking. <|I_ACT|> Samantha knowing her boyfriend enjoys drinking, never says anything and starts drinking with him. <|NRM|>",
+        "actor_output": "It is good to encourage your boyfriend to stay sober.",
+        "generated_ans_gpt-3": "it's good to support your partner when they're drinking.",
+        "generated_ans_gpt-3_critic": "it's important to not let your partner drink too much.",
+        "hint": "unrelated 4: not letting your partner drink too much.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Cleo and her friend Lou are jumping on the trampoline together when Lou falls and hurts his arm. <|INT|> Cleo wants to get Lou to the care center. <|M_ACT|> Cleo tells Lou to get into her car and drives him to the nearest care center. <|I_ACT|> Cleo doesn't want to use gas in her car, so she walks Lou to the nearest care center. <|NRM|>",
+        "actor_output": "It's normal for people to drive.",
+        "generated_ans_gpt-3": "it's good to help your friends when they need it.",
+        "generated_ans_gpt-3_critic": "it's good to help your friends when they need it.",
+        "hint": "unrelated 4: helping your friends in need.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Mary is angry because her work team was given the wrong information and now they are behind schedule on their assignment, because of it. <|INT|> Mary wants to find out why she doesn't have the right information. <|M_ACT|> Mary lets her boss know that an error has been made, and she needs to understand how it was made before proceeding with her work group's current instructions. <|I_ACT|> Mary asks her boss why she was given incorrect information and suggests that management is incompetent. <|NRM|>",
+        "actor_output": "You should be respectful when you are questioning your superiors.",
+        "generated_ans_gpt-3": "it's wrong to make a mistake.",
+        "generated_ans_gpt-3_critic": "it is wrong to blame others for your problems.",
+        "hint": "unrelated 4: blaming others for your problems.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Annie is driving to go see a concert and meet her friends. <|INT|> Annie wants to get to the concert before the show starts. <|M_ACT|> Annie knows she cant get another parking ticket so finds a appropriate spot to park she still gets to the concert before its starting. <|I_ACT|> Annie parks in a spot that could get her a ticket even though she already has multiple parking tickets she gets to the show before it starts. <|NRM|>",
+        "actor_output": "Getting parking tickets several times is irresponsible.",
+        "generated_ans_gpt-3": "it's wrong to park in a spot that is a hazard.",
+        "generated_ans_gpt-3_critic": "it is wrong to park in a spot that is already a violation.",
+        "hint": "unrelated 4: parking in a spot that is already a violation.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Terry meets Alisha's new boyfriend Ron for the first time. <|INT|> Terry wants to get to know Ron better. <|M_ACT|> Terry asks Ron what he does for a living. <|I_ACT|> Terry asks Ron if he plays basketball because he's so tall. <|NRM|>",
+        "actor_output": "It's wrong to stereotype people based on their height.",
+        "generated_ans_gpt-3": "it's wrong to judge someone based on their looks.",
+        "generated_ans_gpt-3_critic": "it is wrong to judge someone based on their looks.",
+        "hint": "unrelated 4: asking someone if they are tall.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Rick invited some friends to eat out with him and is waiting for them at the restaurant. <|INT|> Rick wants to order food for when they arrive. <|M_ACT|> Rick orders some appetizers and saves the full meal for when his friends get there. <|I_ACT|> Rick orders the full meal before his friends arrive so it will be ready once they get there. <|NRM|>",
+        "actor_output": "You shouldn't expect people to always be on time.",
+        "generated_ans_gpt-3": "it's good to be patient when you're out with your friends.",
+        "generated_ans_gpt-3_critic": "it's important to prepare food for your friends.",
+        "hint": "unrelated 4: not preparing food for your friends.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Julie's sister, Kara, has been very depressed lately and has talks a lot about death. <|INT|> Julie wants to support Hannah. <|M_ACT|> Julie gets Hannah to call the suicide hotline and makes sure she gets professional help. <|I_ACT|> Julie tells Hannah she just needs to buck up and feel better. <|NRM|>",
+        "actor_output": "It's important to get your relatives help when they're suicidal.",
+        "generated_ans_gpt-3": "it's good to help people who are depressed.",
+        "generated_ans_gpt-3_critic": "it's important to not ignore someone who is suicidal.",
+        "hint": "unrelated 4: not ignoring someone who is suicidal.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Mindy is a busy college student that also works full time. <|INT|> Mindy wants to find a way to relive stress. <|M_ACT|> Mindy begins taking Yoga classes. <|I_ACT|> Mindy begins smoking cigarettes. <|NRM|>",
+        "actor_output": "Smoking cigarettes is considered an unhealthy habit.",
+        "generated_ans_gpt-3": "it's good to be active.",
+        "generated_ans_gpt-3_critic": "it's good to be active.",
+        "hint": "unrelated 4: not being a quitter.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Troy is talking to his teenage son about getting a job and saving his money which his son is resisting. <|INT|> Troy wants to give his son motivation to find a job. <|M_ACT|> Troy tells his son that if he gets a job now he can retire earlier and do whatever he wants for the second half of his life. <|I_ACT|> Troy tells his son that if he doesn't get a job he'll get kicked out of the house and can live on his own. <|NRM|>",
+        "actor_output": "It's mean to want your child to leave.",
+        "generated_ans_gpt-3": "it's good to encourage your kids to find a job.",
+        "generated_ans_gpt-3_critic": "it's important to not let your kids die.",
+        "hint": "unrelated 4: not letting your kids die.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> James was invited to go to his friends house for dinner tonight. <|INT|> James wants to ask permission from his mom and dad. <|M_ACT|> James knocks on his parents door, and they tell him to wait until they come out, and when they do James asks if he can leave to his friends. <|I_ACT|> James walks into his parents room and asks if he can go, but catches them having sex. <|NRM|>",
+        "actor_output": "You shouldn't go into your parent's bedroom without their permission.",
+        "generated_ans_gpt-3": "it's wrong to cheat on your parents.",
+        "generated_ans_gpt-3_critic": "it is wrong to sleep with your parents.",
+        "hint": "unrelated 4: sleeping with your parents.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> The day before Jill's twenty-first birthday, her best friend calls her and says she's experiencing coronavirus symptoms. <|INT|> Jill wants her best friend to be part of her birthday party. <|M_ACT|> Jill decides to hold a virtual twenty-first birthday party so her sick friend feels included. <|I_ACT|> Jill insists that her friend attend her twenty-first birthday party in person. <|NRM|>",
+        "actor_output": "You shouldn't spend time with people if they are sick.",
+        "generated_ans_gpt-3": "it's good to celebrate your friend's birthday.",
+        "generated_ans_gpt-3_critic": "it's important to not exclude people with medical conditions from events.",
+        "hint": "unrelated 4: not excluding people with medical conditions from events.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Ted is at the store when he sees a person he doesn't know struggling to carry a lot of heavy bags to their car. <|INT|> Ted wants to go to his own car. <|M_ACT|> Ted helps the person carry their bags to their car before heading to his own car. <|I_ACT|> Ted ignores the person struggling with their bags and goes over to his car. <|NRM|>",
+        "actor_output": "It's good to do kind things for strangers.",
+        "generated_ans_gpt-3": "it's good to help people.",
+        "generated_ans_gpt-3_critic": "it's good to help people.",
+        "hint": "unrelated 4: helping people.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jeff is at work when his boss make a sexist remark about a coworker. <|INT|> Jeff wants to be promoted. <|M_ACT|> Jeff reports the comment his boss made to the human resources department. <|I_ACT|> Jeff ignores the comment and laughs about it with his boss. <|NRM|>",
+        "actor_output": "You should report people for this misconduct on the job.",
+        "generated_ans_gpt-3": "it's good to report a sexist comment to your boss.",
+        "generated_ans_gpt-3_critic": "it is proper to ignore a comment your boss makes.",
+        "hint": "unrelated 4: not ignoring a comment your boss makes.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Matt is feeling hungry and decides to browse the various foods he has available in his refrigerator. <|INT|> Matt wants to find something tasty to satisfy his hunger. <|M_ACT|> Matt eats some veggies and hummus to satisfy his cravings for food. <|I_ACT|> Matt takes a tub of cream cheese from his fridge and eats the entire container with a spoon. <|NRM|>",
+        "actor_output": "You shouldn't eat cream cheese by itself because it's fattening.",
+        "generated_ans_gpt-3": "it's wrong to eat everything you have.",
+        "generated_ans_gpt-3_critic": "it's wrong to steal everything you have.",
+        "hint": "unrelated 4: stealing everything you have.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> James feels extremely stressed between his job and caring for his two kids. <|INT|> James wants to reduce his stress level. <|M_ACT|> James asks his boss to switch to a part-time schedule, so he can have better work-life balance. <|I_ACT|> James fakes his death while hiking and flees to Costa Rica. <|NRM|>",
+        "actor_output": "It's mean to abandon your family.",
+        "generated_ans_gpt-3": "it's wrong to fake your death.",
+        "generated_ans_gpt-3_critic": "it's wrong to fake your death.",
+        "hint": "unrelated 4: faking your death.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Eric lives at home with 2 older brothers, needs clothes and is poor. <|INT|> Eric wants some more clothes for himself. <|M_ACT|> Eric asks his older brother for some of his nice shirts that he no longer wears. <|I_ACT|> Eric buys expensive clothes at a store on his credit card. <|NRM|>",
+        "actor_output": "It's good to recycle and reuse products as hand-me-downs.",
+        "generated_ans_gpt-3": "it's wrong to buy things without asking.",
+        "generated_ans_gpt-3_critic": "it's important to ask for things from others.",
+        "hint": "unrelated 4: not asking for things from others.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Daichi is unable to talk due to his cold, but he needs to watch over a test. <|INT|> Daichi wants to instruct the students. <|M_ACT|> Daichi texts her friend what she needs to say, and asks them to talk to the class. <|I_ACT|> Daichi passes out the test with written directions in tiny handwriting. <|NRM|>",
+        "actor_output": "It's good to clearly explain the rules for a test.",
+        "generated_ans_gpt-3": "it's rude to give directions in tiny handwriting.",
+        "generated_ans_gpt-3_critic": "it's important to give students written directions.",
+        "hint": "unrelated 2: not giving students written directions.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Martha is taking care of her two grandchildren for the weekend. <|INT|> Martha wants to go camping. <|M_ACT|> Martha takes her grandchildren to her favorite campground upstate. <|I_ACT|> Martha drops her grandchildren off at a friends house for the weekend. <|NRM|>",
+        "actor_output": "It's good to invite your grandchildren on your trips.",
+        "generated_ans_gpt-3": "it's good to take your grandchildren camping trips.",
+        "generated_ans_gpt-3_critic": "it's important to take your grandchildren camping trips.",
+        "hint": "unrelated 4: taking your grandchildren camping with you.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Peter and his wife are home for the evening after a long week. <|INT|> Peter wants to watch the evening basketball game. <|M_ACT|> Peter asks his wife to watch the game with him like a stay at home date. <|I_ACT|> Peter ignores is wife and views the basketball game for the evening. <|NRM|>",
+        "actor_output": "It is important to spend time with your spouse.",
+        "generated_ans_gpt-3": "it's good to be with your partner.",
+        "generated_ans_gpt-3_critic": "it's important to not ignore your partner.",
+        "hint": "unrelated 4: not ignoring your partner.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Simon is trying out for a singing competition, with Tim as a judge, and it is not going well. <|INT|> Tim wants to reject Simon. <|M_ACT|> Tim rejects Simon, but recognizes that he only has some small things to fix and recommends a voice coach. <|I_ACT|> Tim laughs at Simon's singing and makes fun of his voice. <|NRM|>",
+        "actor_output": "It's rude to laugh at someone for their singing voice.",
+        "generated_ans_gpt-3": "it's wrong to make fun of someone's voice.",
+        "generated_ans_gpt-3_critic": "it's wrong to make fun of someone's voice.",
+        "hint": "unrelated 4: making fun of someone's voice.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Rapunzel is out for a walk in her neighborhood and notices five teenagers picking on an old man. <|INT|> Rapunzel wants to remain safe. <|M_ACT|> Rapunzel gets out her phone and films the incident while calling 911 at the same time. <|I_ACT|> Rapunzel ducks away around a corner as quickly as possible hoping the teenagers did not see her before rushing home as quickly as possible. <|NRM|>",
+        "actor_output": "It's acceptable to report wrongdoing to the police.",
+        "generated_ans_gpt-3": "it's wrong to ignore people who are abused.",
+        "generated_ans_gpt-3_critic": "it's wrong to ignore people who are abused.",
+        "hint": "no",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Steve, the police chief, has found a big serial killer. <|INT|> Steve wants the serial killer to face justice. <|M_ACT|> Steve pulls out his gun and arrests the killer, deciding to let the courts handle it. <|I_ACT|> Steve pulls out his gun, and shoots the serial killer, not taking any chances. <|NRM|>",
+        "actor_output": "It is good to arrest those who murder.",
+        "generated_ans_gpt-3": "it's wrong to shoot people.",
+        "generated_ans_gpt-3_critic": "it's wrong to murder people.",
+        "hint": "unrelated 4: murdering people.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Justin and Celia have been married for nearly twenty years, and Justin was recently diagnosed with Type II diabetes and hypertension. <|INT|> Celia wants Justin to feel better after his diagnosis. <|M_ACT|> Celia makes a sugar free cake and cooks some baked salmon with roasted vegetables for dinner. <|I_ACT|> Celia orders their favorite chocolate cake and prepares some ribeye steaks and buttery mashed potatoes for dinner. <|NRM|>",
+        "actor_output": "It's good to be mindful of your partner's medical conditions.",
+        "generated_ans_gpt-3": "it's good to be patient with your health issues.",
+        "generated_ans_gpt-3_critic": "it is important to make someone feel welcome.",
+        "hint": "unrelated 4: not making someone feel unwelcome.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Jake doesn't often compliment his girlfriend Alyssa on her appearance, and she often asks whether he finds her attractive or not. <|INT|> Jake wants Alyssa to stop asking about his attraction to her. <|M_ACT|> Jake tells Alyssa he is very much attracted to her and starts to compliment her more often. <|I_ACT|> Jake responds to Alyssa's questions by telling her she is being ridiculous. <|NRM|>",
+        "actor_output": "You should alleviate the concerns that your partner might have.",
+        "generated_ans_gpt-3": "it's wrong to be rude to your girlfriend.",
+        "generated_ans_gpt-3_critic": "it is important to be honest with your significant other.",
+        "hint": "unrelated 4: not being honest with your significant other.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Joe meets a new person for the the first time who introduces himself to Joe. <|INT|> Joe wants to say something to the person. <|M_ACT|> Joe compliments the person he just met and tells them to let Joe know if they ever need help with anything. <|I_ACT|> Joe tells the person that he just met that they're kind of ugly and don't look to bright either. <|NRM|>",
+        "actor_output": "You should be nice to new people you meet.",
+        "generated_ans_gpt-3": "it's rude to make fun of someone for being ugly.",
+        "generated_ans_gpt-3_critic": "it is polite to compliment someone.",
+        "hint": "unrelated 4: not complimenting someone.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Cam's brother was stranded on the middle of the highway and called Cam for help. <|INT|> Cam has to respond to his brother. <|M_ACT|> Cam tells his brother that he'll get there as fast as he can. <|I_ACT|> Cam doesn't want to drive on the highway, so he makes his brother call someone else. <|NRM|>",
+        "actor_output": "You should be there for others.",
+        "generated_ans_gpt-3": "it's good to help others when they need you.",
+        "generated_ans_gpt-3_critic": "it's important to help out your family on the road.",
+        "hint": "unrelated 4: helping out your family on the road.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Ted is at a party and is talking with some people he's never met. <|INT|> Ted wants to carry a conversation. <|M_ACT|> Ted tells the people some jokes he heard from his favorite comedian. <|I_ACT|> Ted talks about his job pushing papers at a corporation. <|NRM|>",
+        "actor_output": "It's good to tell jokes.",
+        "generated_ans_gpt-3": "it's wrong to talk about your job.",
+        "generated_ans_gpt-3_critic": "it's boring to talk about your job.",
+        "hint": "unrelated 4: talking about your job at a corporation.",
+        "score": 0
+    },
+    {
+        "actor_input": "<|SIT|> Emily goes to New York for vacation with her family and is feeling really anxious. <|INT|> Emily wants to avoid crowds. <|M_ACT|> Emily asks her family if they can go to less frequented places upstate because her anxiety is acting up. <|I_ACT|> Emily stays in the hotel while her family goes out to explore the city together. <|NRM|>",
+        "actor_output": "It's good to sight-see during your vacation.",
+        "generated_ans_gpt-3": "it's good to travel with your family.",
+        "generated_ans_gpt-3_critic": "it's important to avoid people because of their anxiety.",
+        "hint": "unrelated 4: not avoiding people because of their anxiety.",
+        "score": 0
+    }
+]
