@@ -127,8 +127,8 @@ def main():
 
         extra_other_norms = []
         extra_other_anti_norms = []
-        max_no_hint_cases = min(4, max_error_cases)-1
-        max_contr_cases = min(3, max_error_cases)-1
+        max_no_hint_cases = max_error_cases-1
+        max_contr_cases = max_error_cases-1
 
         if len(other_norms) >= max_no_hint_cases:
             extra_other_norms = random.sample(other_norms, max_no_hint_cases)
