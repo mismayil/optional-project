@@ -22,8 +22,8 @@ def main():
 
         actor_data.append({
             "id": sample["ID"],
-            "actor_input": f"{SITUATION_TOKEN} {situation} {INTENTION_TOKEN} {intention} {MORAL_ACTION_TOKEN} {moral_action} {IMMORAL_ACTION_TOKEN} {immoral_action} {NORM_TOKEN}",
-            "actor_output": norm
+            "actor_input": f"{SITUATION_TOKEN} {situation} {INTENTION_TOKEN} {intention} {IMMORAL_ACTION_TOKEN} {immoral_action} {NORM_TOKEN}",
+            "actor_output": f"{norm} {MORAL_ACTION_TOKEN} {moral_action}"
         })
 
     datapath = pathlib.Path(args.datapath)
