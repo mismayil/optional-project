@@ -22,12 +22,12 @@ def main():
 
         critic_data.append({
             "id": sample["id"],
-            "critic_input": re.sub("\[QUERY\].*", "", re.sub("\[SITUATION\]", "", question)).strip().lower(),
-            "critic_output": answer.strip().lower()
+            "model_input": re.sub("\[QUERY\].*", "", re.sub("\[SITUATION\]", "", question)).strip().lower(),
+            "model_output": answer.strip().lower()
         })
 
     datapath = pathlib.Path(args.datapath)
-    write_json(critic_data, f"{datapath.parent}/sc_critic_{datapath.stem}_final{args.suffix}.json")
+    write_json(critic_data, f"{datapath.parent}/sc_{datapath.stem}_final{args.suffix}.json")
 
 if __name__ == "__main__":
     main()
