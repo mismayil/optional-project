@@ -109,11 +109,11 @@ def get_overlap(source: str, target: str, ignore_stopwords: bool = False, ignore
     source_words = get_words(source, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
     target_words = get_words(target, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
     overlap = target_words.intersection(source_words)
-    return overlap, (len(overlap) / len(target_words)) if overlap else 0
+    return overlap, (len(overlap) / len(target_words)) if overlap else 0, (len(overlap) / len(source_words)) if overlap else 0
 
 def has_overlap(source: str, target: str, threshold: float, ignore_stopwords: bool = False, ignore_entities: bool = False):
-    _, overlap_level = get_overlap(source, target, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
-    return overlap_level > threshold
+    _, overlap_level1, overlap_level2 = get_overlap(source, target, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
+    return overlap_level1 > threshold or overlap_level2 > threshold
 
 def has_story_overlap(head: str, tail: str, story: str, threshold: float, selected_context: str = None, dim: int = 1,
                       ignore_stopwords: bool = False, ignore_entities: bool = False) -> bool:
