@@ -90,6 +90,10 @@ def get_placeholders():
 
 def get_words(text: str, ignore_stopwords: bool = False, ignore_entities: bool = False, placeholders=None):
     doc = get_doc(text.strip())
+
+    if not placeholders:
+        placeholders = []
+
     tokens = [token for token in doc if token.text not in placeholders and not token.is_punct and len(token.text.strip()) > 0]
     
     if ignore_stopwords:
@@ -101,14 +105,15 @@ def get_words(text: str, ignore_stopwords: bool = False, ignore_entities: bool =
 
     return set([token.lemma_.lower() for token in tokens])
 
-def has_overlap(source: str, target: str, threshold: float, ignore_stopwords: bool = False, ignore_entities: bool = False):
+def get_overlap(source: str, target: str, ignore_stopwords: bool = False, ignore_entities: bool = False):
     source_words = get_words(source, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
     target_words = get_words(target, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
+    overlap = target_words.intersection(source_words)
+    return overlap, (len(overlap) / len(target_words)) if overlap else 0
 
-    if len(target_words) > 0:
-        return (len(target_words.intersection(source_words)) / len(target_words)) > threshold
-    
-    return False
+def has_overlap(source: str, target: str, threshold: float, ignore_stopwords: bool = False, ignore_entities: bool = False):
+    _, overlap_level = get_overlap(source, target, ignore_stopwords=ignore_stopwords, ignore_entities=ignore_entities)
+    return overlap_level > threshold
 
 def has_story_overlap(head: str, tail: str, story: str, threshold: float, selected_context: str = None, dim: int = 1,
                       ignore_stopwords: bool = False, ignore_entities: bool = False) -> bool:

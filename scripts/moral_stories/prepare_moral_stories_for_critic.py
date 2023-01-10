@@ -67,7 +67,7 @@ def main():
         fake_norms = sample["fake_norms"]
         fake_norm_sentiments = sample["fake_norm_sentiments"]
 
-        for fake_norm, fn_sentiment in zip(fake_norms, fake_norm_sentiments):
+        for fake_norm, fn_sentiment in zip(fake_norms[:-1], fake_norm_sentiments[:-1]):
             hint = norm_action.strip()
             
             if norm_sentiment * fn_sentiment < 0:
