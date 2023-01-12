@@ -1,0 +1,302 @@
+[
+    {
+        "output": "Its wrong to eat more than you can handle.  | M_ACT | > Bob eats one small cookie."
+    },
+    {
+        "output": "Its wrong to eat too much sugar.  | M_ACT | > Jacob eats a small piece of chocolate."
+    },
+    {
+        "output": "Its wrong to not care about your shoes.  | M_ACT | > Hank wipes his shoes with a damp cloth before entering his friends house."
+    },
+    {
+        "output": "Its rude to order food without your friends knowing.  | M_ACT | > Rick orders a small appetizer and a side salad before his friends arrive."
+    },
+    {
+        "output": "Its good to study for your classes.  | M_ACT | > Cade goes to the movies with his friends."
+    },
+    {
+        "output": "Its wrong to marry someone just for their money.  | M_ACT | > Lisa tells Cam that she isnt sure if hes serious about marriage but that she would consider it if he was."
+    },
+    {
+        "output": "Its wrong to not follow rules.  | M_ACT | > Kelly sees a sign that says no diving, so she decides to practice it anyway."
+    },
+    {
+        "output": "Its rude to be upset when someone wins a prize.  | M_ACT | > Chuck congratulates Midge on the big prize and tells her that he had a great time."
+    },
+    {
+        "output": "Its wrong to laugh at your boss.  | M_ACT | > Jeff reports his boss for the remark and reports the coworker to HR."
+    },
+    {
+        "output": "Its wrong to keep someones records for a long time.  | M_ACT | > Bela notices a violation on an employees record and tells the employee to report it."
+    },
+    {
+        "output": "Its bad to not take care of your health.  | M_ACT | > Theresa calls her boss and tells him she needs to take a day off due to her illness."
+    },
+    {
+        "output": "Its good to help your pets.  | M_ACT | > Pascal decides to take his dog to the vet and pay for the treatment."
+    },
+    {
+        "output": "Its wrong to leave a dog without water.  | M_ACT | > Paula decides to fill the bowl before she leaves and leaves the dog alone."
+    },
+    {
+        "output": "Its good to help your friends.  | M_ACT | > Cleo calls an ambulance to take Lou to the care center."
+    },
+    {
+        "output": "Its good to study for your tests.  | M_ACT | > David goes to the library and reads a book."
+    },
+    {
+        "output": "Its wrong to steal something from someone else.  | M_ACT | > Richard asked his neighbors if he could borrow the bike."
+    },
+    {
+        "output": "Its good to tell the truth.  | M_ACT | > Jack tells his friend what he saw and asks them to report it."
+    },
+    {
+        "output": "Its wrong to shoot someone.  | M_ACT | > Steve calls the police and asks them to bring the serial killer to justice."
+    },
+    {
+        "output": "Its good to protect the vulnerable.  | M_ACT | > Rapunzel calls the police and reports the situation to them."
+    },
+    {
+        "output": "Its wrong to drive fast.  | M_ACT | > Henry tells the cop hes sorry and promises to pay for the fine."
+    },
+    {
+        "output": "Its wrong to not read others.  | M_ACT | > Daichi explains the test in a large type font."
+    },
+    {
+        "output": "Its wrong to shoot people.  | M_ACT | > Bill decides to call the police and tell them what happened."
+    },
+    {
+        "output": "Its rude to exclude your parents from events.  | M_ACT | > Jack invites his parents to the party and makes sure they have fun."
+    },
+    {
+        "output": "Its good to compromise with your partner.  | M_ACT | > Ron tells Kate that they can go to both Disney World and the beach, they just have to agree on a few things."
+    },
+    {
+        "output": "Its good to show your feelings toward others.  | M_ACT | > Jim expresses his feelings to John and tells him that he thinks its wrong."
+    },
+    {
+        "output": "Its good to be there for your family.  | M_ACT | > Julie tells Hannah shes there for her and offers to go to therapy with her."
+    },
+    {
+        "output": "Its good to tell someone who is cheating.  | M_ACT | > Anne tells the teacher about the student looking at their notes."
+    },
+    {
+        "output": "Its wrong to tell someone they are cheating.  | M_ACT | > Greg tells the student that copying is wrong and that they should not do it."
+    },
+    {
+        "output": "Its good to be responsible and do your best.  | M_ACT | > Lexi finishes the chapter and submits the homework on time."
+    },
+    {
+        "output": "Its good to help out your teachers.  | M_ACT | > Jim agrees to help the teacher move the equipment and helps set up the classroom."
+    },
+    {
+        "output": "Its wrong to lie to the police about a crime.  | M_ACT | > Katie tells the police that she witnessed a crime and that she will turn herself in."
+    },
+    {
+        "output": "Its good to listen to someones problems.  | M_ACT | > Kane listens and tells Chuck that hes heard plenty of stories like his and that he should try to improve his life."
+    },
+    {
+        "output": "Its good to comfort people who are sad.  | M_ACT | > John comforts Tony and offers to buy him a beer."
+    },
+    {
+        "output": "Its wrong to spy on your parents.  | M_ACT | > James walks into his parents room and asks if he can go, but doesnt catch them having sex."
+    },
+    {
+        "output": "Its good to thank your grandparents.  | M_ACT | > Zachary thanks his grandparents right away and tells them how much they meant to him."
+    },
+    {
+        "output": "Its wrong to be too intrusive at a party.  | M_ACT | > Steve talks to his neighbors about the neighborhood and its history."
+    },
+    {
+        "output": "Its wrong to break up with someone over text.  | M_ACT | > Jeff sits down with Jenny and tells her that hes breaking up with her."
+    },
+    {
+        "output": "Its wrong to lie to your partner.  | M_ACT | > John tells Mindy that he ate the last piece of cake."
+    },
+    {
+        "output": "Its wrong to cause harm to someone elses property.  | M_ACT | > Jack tosses a ball around with his friends and hits a tree with it."
+    },
+    {
+        "output": "Its wrong to make fun of someones singing.  | M_ACT | > Tim tells Simon that he cannot win the competition because he is not good enough."
+    },
+    {
+        "output": "Its rude to ask someone about their height.  | M_ACT | > Terry asks Ron if hes ever been to a concert."
+    },
+    {
+        "output": "Its wrong to discriminate against people of different races.  | M_ACT | > Dave tells John that he can do anything he puts his mind to, and hes a great player."
+    },
+    {
+        "output": "Its wrong to hit animals.  | M_ACT | > Steve asks the goat to return his hat."
+    },
+    {
+        "output": "Its good to give people a treat.  | M_ACT | > Beth gives everyone a piece of chocolate."
+    },
+    {
+        "output": "Its bad to smoke cigarettes.  | M_ACT | > Mindy begins going to the gym."
+    },
+    {
+        "output": "Its wrong to be rude to your partner.  | M_ACT | > Jake tells Alyssa that he doesnt think she is attractive, but that he would like to see her more."
+    },
+    {
+        "output": "Its wrong to lie to your partner about how often they have had sex.  | M_ACT | > Ned tells Janet that it has been a while since they had sex, and he doesnt think its"
+    },
+    {
+        "output": "Its rude to make fun of someones height.  | M_ACT | > Darla asks the man how hes doing and what his favorite hobby is."
+    },
+    {
+        "output": "Its wrong to order more drinks than you can handle.  | M_ACT | > John tells the bartender that hes had enough and that hes going to go home."
+    },
+    {
+        "output": "Its rude to say mean things about someone.  | M_ACT | > Joe tells the person that he just met that theyre really nice and that he hopes they get along well."
+    },
+    {
+        "output": "Its good to go out and enjoy yourself.  | M_ACT | > Igor decides to go to the beach and enjoy the water sports."
+    },
+    {
+        "output": "Its wrong to blame others for things that arent your fault.  | M_ACT | > Mary asks her boss if they could provide more information and if they could provide more detailed information."
+    },
+    {
+        "output": "Its wrong to use someones account for inappropriate things.  | M_ACT | > James tweets a joke to his friend that hes been following for a while."
+    },
+    {
+        "output": "Its bad to eat too much of something.  | M_ACT | > Matt takes a small piece of a pretzel from his fridge and eats it with a fork."
+    },
+    {
+        "output": "Its good to take care of your grandchildren.  | M_ACT | > Martha takes her grandchildren camping with her."
+    },
+    {
+        "output": "Its good to go out with your family.  | M_ACT | > Emily goes out with her family to see the sights but stays in a hotel."
+    },
+    {
+        "output": "Its good to do the dishes for your spouse.  | M_ACT | > Dan makes sure to wash all the dishes before he leaves for work."
+    },
+    {
+        "output": "Its wrong to expect your parents to do your laundry for you.  | M_ACT | > Emma asks her boyfriend to do Emmas laundry for her."
+    },
+    {
+        "output": "Its wrong to miss an appointment.  | M_ACT | > Frank calls his doctor and tells him he feels better now."
+    },
+    {
+        "output": "Its rude to interrupt someone when theyre speaking.  | M_ACT | > John rushes towards the podium shouting the presidents name."
+    },
+    {
+        "output": "Its kind to help people with their bags.  | M_ACT | > Ted helps the person with their bags and offers to help them get to their car."
+    },
+    {
+        "output": "Its wrong to bite someone.  | M_ACT | > Chloe tells Zoe that shes uncomfortable with the way shes being held."
+    },
+    {
+        "output": "Its bad to be an alcoholic.  | M_ACT | > Cindy decides to refrain from drinking and instead plays games with her friends."
+    },
+    {
+        "output": "Its wrong to not pay people you owe money to.  | M_ACT | > Zach pays Tim back the money he owes him and pays his rent on time."
+    },
+    {
+        "output": "Its good to seek medical attention for injuries.  | M_ACT | > Tony goes to the hospital and gets a dressing for his injury."
+    },
+    {
+        "output": "Its bad to fake your own death.  | M_ACT | > James takes a day off from work to spend time with his kids."
+    },
+    {
+        "output": "Its wrong to threaten your childs future.  | M_ACT | > Troy tells his son that he can save his money for a long time if he works hard."
+    },
+    {
+        "output": "Its wrong to not talk to your mother.  | M_ACT | > Phil talks to his mother and explains the report card was wrong."
+    },
+    {
+        "output": "Its good to share your health and fitness journey with others.  | M_ACT | > Sara tells her friends about her new routine and how she feels after they have a few drinks."
+    },
+    {
+        "output": "Its bad to gamble too much.  | M_ACT | > Jim only spends a small amount and wins a few dollars."
+    },
+    {
+        "output": "Its wrong to park illegally.  | M_ACT | > Annie parks in a spot that doesnt have a lot of people in it so she doesnt have to wait in line for a parking spot."
+    },
+    {
+        "output": "Its wrong to be racist.  | M_ACT | > Bill thinks the woman will succeed, so he offers her a low rate of interest."
+    },
+    {
+        "output": "Its bad to spend money you dont need.  | M_ACT | > Phil spends $5 and then plays the game for an hour."
+    },
+    {
+        "output": "Its wrong to sabotage your sisters life.  | M_ACT | > Marilyn talks to her sister and explains her feelings about the inheritance."
+    },
+    {
+        "output": "Its good to compromise with your partner.  | M_ACT | > Alyssa agrees to work less and spends more time at home with her husband."
+    },
+    {
+        "output": "Its good to be there for your partner.  | M_ACT | > Peter and his wife watch the basketball game together."
+    },
+    {
+        "output": "Its good to help out a child who is struggling.  | M_ACT | > Vladimir helps the child stand up and sits in his seat until he stops."
+    },
+    {
+        "output": "Its good to help your family.  | M_ACT | > Eric helps his brothers by buying them clothes from a thrift store."
+    },
+    {
+        "output": "Its wrong to judge someone for their relationship history.  | M_ACT | > Sean tells Ken that he would be happy to help Nancy find a new partner."
+    },
+    {
+        "output": "Its wrong to steal from your parents.  | M_ACT | > Ben asks his father for money to put gas in his car."
+    },
+    {
+        "output": "Its bad to spread germs.  | M_ACT | > Jack calls his friend and tells him he cant go to the party."
+    },
+    {
+        "output": "Its rude to exclude someone from a celebration.  | M_ACT | > Jill asks her friend to come to her party over the phone."
+    },
+    {
+        "output": "Its good to make people laugh.  | M_ACT | > Dagon makes a clown out of a balloon."
+    },
+    {
+        "output": "Its wrong to poke babies.  | M_ACT | > Josh plays with the baby for a few minutes."
+    },
+    {
+        "output": "Its wrong to be a bad host.  | M_ACT | > Rebecca takes a breath and explains her feelings to her friends."
+    },
+    {
+        "output": "Its rude to make negative comments about someones body.  | M_ACT | > Mary asks Susan if she can help her with a meal plan to help her lose weight."
+    },
+    {
+        "output": "Its good to support your partner in their health.  | M_ACT | > Celia offers to cook Justin a healthy dinner of vegetables and fruits."
+    },
+    {
+        "output": "Its wrong to talk about your job.  | M_ACT | > Ted talks about the people hes met at work."
+    },
+    {
+        "output": "Its wrong to judge others religions.  | M_ACT | > Joe tells Zack that he would love to go to church with him."
+    },
+    {
+        "output": "Its wrong to not respect the beliefs of others.  | M_ACT | > Mark tells his family that he would be happy to go to church with them."
+    },
+    {
+        "output": "Its wrong to try to squeeze someones breasts.  | M_ACT | > Tate tells his wife that hes sorry to hear about her illness."
+    },
+    {
+        "output": "Its wrong to fight over something minor.  | M_ACT | > Delanie asked Darcie if she could watch another cartoon, so they could both watch it together."
+    },
+    {
+        "output": "Its bad to not take care of yourself.  | M_ACT | > James takes a shower and eats a healthy dinner before the interview."
+    },
+    {
+        "output": "Its good to tip people.  | M_ACT | > Maria gives the driver a tip for his service."
+    },
+    {
+        "output": "Its wrong to not pay for your food.  | M_ACT | > Kevin pays for his meal with his debit card."
+    },
+    {
+        "output": "Its nice to give someone a gift.  | M_ACT | > Matt gives Mona a gift card with a special message inside."
+    },
+    {
+        "output": "Its good to help out your family.  | M_ACT | > Cam drives to his brothers place and helps him out."
+    },
+    {
+        "output": "Its bad to be late for dinner.  | M_ACT | > Gordon decides to finish playing World of Warcraft with his friends before meeting his parents at the restaurant."
+    },
+    {
+        "output": "Its good to talk to your kids about your drinking.  | M_ACT | > Todd talks to his kids about his drinking and asks them to watch a movie together."
+    },
+    {
+        "output": "Its good to tell someone they need help with their addictions.  | M_ACT | > Samantha tells her boyfriend that he needs to stop drinking and asks him to stop."
+    }
+]
